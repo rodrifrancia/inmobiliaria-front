@@ -29,6 +29,8 @@ const Formulario = () => {
             <label htmlFor="supCubierta" className='font-bold uppercase p-1'>Superficie Cubierta</label>
             <input type="text" id='supCubierta' className='rounded-sm border-2'/>
             <label htmlFor="calificacion" className='font-bold uppercase p-1'>Calificacion</label>
+            <input type="submit" className='w-full rounded-md bg-sky-600 p-3 mt-4 hover:bg-sky-700 transition-colors cursor-pointer text-white font-bold uppercase'
+             value="Agregar Propiedad"/>
         </form>
     </div>
   )
