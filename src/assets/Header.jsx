@@ -22,7 +22,6 @@ return (
         <nav>
         <ul className="flex space-x-16 mt-3 text-sky-600 font-bold uppercase">
             <li className="p-2 hover:-translate-y-px">Inicio</li>
-            <li className="p-2 hover:-translate-y-px">Admin</li>
             <li className="p-2 hover:-translate-y-px">Ingresar</li>
             <li className="bg-sky-600 text-white p-2 rounded-sm cursor-pointer hover:-translate-y-px">
             Registrarse
