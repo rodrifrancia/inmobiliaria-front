@@ -6,8 +6,8 @@ const ListadoOfertas = ({propiedades}) => {
 
     console.log(propiedades)
 return (
-    <div className="">
-
+    <div className="mb-8 bt-8">
+        
     {propiedades && propiedades.length ? (
         <div>
     <div className="grid grid-cols-3 gap-5 mx-auto">
