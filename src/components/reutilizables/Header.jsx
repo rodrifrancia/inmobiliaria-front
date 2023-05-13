@@ -25,17 +25,17 @@ const Header = () => {
         </Link>
         </h3>
         <nav>
-        <ul className="flex space-x-16 pt-6 text-sky-600 font-bold uppercase">
-            <li>
-                <Link to="/" className="p-2 hover:-translate-y-px uppercase"
+        <ul className="flex space-x-16 pt-4 text-sky-600 font-bold uppercase">
+            <li className="p-2 hover:-translate-y-px uppercase">
+                <Link to="/" 
                 >Inicio</Link>
             </li>
-            <li>
-                <Link to="/Login" className="p-2 hover:-translate-y-px uppercase"
+            <li className="p-2 hover:-translate-y-px uppercase">
+                <Link to="/Login" 
                 >Ingresar</Link>
             </li>
-            <li>
-                <Link to="/Register" className="bg-sky-600 text-white p-2 rounded-sm cursor-pointer hover:-translate-y-px"
+            <li className="bg-sky-600 text-white p-2 rounded-sm cursor-pointer hover:-translate-y-px">
+                <Link to="/Register" 
                 >Registrarse</Link>
             </li>
         </ul>

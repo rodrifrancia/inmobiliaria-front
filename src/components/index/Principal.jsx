@@ -10,8 +10,8 @@ return (
             " Tu propiedad al alcance <br />
             de tu mano "
             </h2>
-            <h1 className="mt-5 text-4xl text-gray-950 font-bold hover:scale-110 hover:text-black transition-colors">
-            Team Five inmuebles
+            <h1 className="mt-5 text-3xl text-black font-bold hover:scale-110  transition-transform">
+            Team Five Inmuebles
             </h1>
         </div>
         <div>

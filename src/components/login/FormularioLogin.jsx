@@ -6,10 +6,10 @@ const FormularioLogin = () => {
 
 return (
     
-    <div className="flex justify-center items-center w-full mt-10 mb-10 h-2/3">
+    <div className="flex justify-center items-center w-full h-3/4">
         <form action="" className=" bg-white p-16 rounded-md shadow-lg">
         <label className="m-6 uppercase font-bold" htmlFor="usuario">
-            Ingrese su Usuario
+            Ingrese su Usuario:
         </label>
         <input
             className="block border-2 m-6 p-3 rounded-sm"
@@ -17,7 +17,7 @@ return (
             id="usuario"
         />
         <label className="m-6 uppercase font-bold" htmlFor="contraseña">
-            Ingrese su Contraseña
+            Ingrese su Contraseña:
         </label>
         <input
             className="block border-2 m-6 p-3 rounded-sm"

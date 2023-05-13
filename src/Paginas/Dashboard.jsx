@@ -12,10 +12,7 @@ const Dashboard = () => {
   const [inmueble, setInmueble] = useState({})
   //mensaje error
   const[error,setError] = useState(false)
-  //estrellitas
-  const [estrellas,setEstrellas]=useState("");
 
-  console.log(inmueble)
 
   const fetchInmuebles =[
     {
@@ -36,8 +33,8 @@ const Dashboard = () => {
       precio: "234000",
       direccion:"manzana 21",
       ambientes: "3",
-      metrosTot: 400,
-      metrosCub: 300,
+      metrosTot: 450,
+      metrosCub: 200,
       calificacion: 3
     },
     {
@@ -47,8 +44,8 @@ const Dashboard = () => {
       precio: "500000",
       direccion:"manzana 41",
       ambientes: "3",
-      metrosTot: 400,
-      metrosCub: 300,
+      metrosTot: 600,
+      metrosCub: 500,
       calificacion: 4
     },
     {
@@ -58,12 +55,17 @@ const Dashboard = () => {
       precio: "2354000",
       direccion:"manzana 96",
       ambientes: "3",
-      metrosTot: 400,
-      metrosCub: 300,
+      metrosTot: 780,
+      metrosCub: 670,
       calificacion: 5
     }
   ]
   
+  const eliminarInmueble =(id)=>{
+    
+    const inmueblesNoBorrados = fetchInmuebles.filter(inmu=> inmu.id !== id)
+    console.log(inmueblesNoBorrados)
+  }
   
 
   return (
@@ -78,14 +80,13 @@ const Dashboard = () => {
         error={error}
         setError={setError}
         fetchInmuebles={fetchInmuebles}
-        estrellas={estrellas}
-        setEstrellas={setEstrellas}
         />
         <TablaInmuebles
         //inmueble={inmueble}
         setInmueble={setInmueble}
         inmuebles={inmuebles}
         fetchInmuebles={fetchInmuebles}
+        eliminarInmueble={eliminarInmueble}
         />
         </div>
         <Footer/>

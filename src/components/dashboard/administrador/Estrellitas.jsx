@@ -2,13 +2,15 @@ import { useState } from "react";
 
 function Estrellitas({estrellas,setEstrellas}) {
   const [rating, setRating] = useState(0);
+  
+  
 
   const handleRatingChange = (event) => {
     const value = event.target.value;
-    setRating(value);
+    setRating(value)
     setEstrellas(value)
   };
-
+  
   return (
     <div className="flex justify-start items-center space-x-4">
       <p className="mr-2 font-bold uppercase pt-3">Calificación:</p>
@@ -25,7 +27,7 @@ function Estrellitas({estrellas,setEstrellas}) {
         <label
           htmlFor="radio1"
           className={`text-5xl mr-1 ${
-            rating >= 1 ? "text-yellow-500" : "text-gray-300"
+            rating >=1 || estrellas >= 1 ? "text-yellow-500" : "text-gray-300"
           }`}
         >
           ★
@@ -42,7 +44,7 @@ function Estrellitas({estrellas,setEstrellas}) {
         <label
           htmlFor="radio2"
           className={`text-5xl mr-1 ${
-            rating >= 2 ? "text-yellow-500" : "text-gray-300"
+            rating >=2 || estrellas >= 2 ? "text-yellow-500" : "text-gray-300"
           }`}
         >
           ★
@@ -59,7 +61,7 @@ function Estrellitas({estrellas,setEstrellas}) {
         <label
           htmlFor="radio3"
           className={`text-5xl mr-1 ${
-            rating >= 3 ? "text-yellow-500" : "text-gray-300"
+            rating >=3 || estrellas >= 3 ? "text-yellow-500" : "text-gray-300"
           }`}
         >
           ★
@@ -76,7 +78,7 @@ function Estrellitas({estrellas,setEstrellas}) {
         <label
           htmlFor="radio4"
           className={`text-5xl mr-1 ${
-            rating >= 4 ? "text-yellow-500" : "text-gray-300"
+            rating >=4 || estrellas >= 4 ? "text-yellow-500" : "text-gray-300"
           }`}
         >
           ★
@@ -93,7 +95,7 @@ function Estrellitas({estrellas,setEstrellas}) {
         <label
           htmlFor="radio5"
           className={`text-5xl mr-1 ${
-            rating >= 5 ? "text-yellow-500" : "text-gray-300"
+            rating >=5 || estrellas >= 5 ? "text-yellow-500" : "text-gray-300"
           }`}
         >
           ★

@@ -1,9 +1,18 @@
 import React from 'react'
 
-const Propiedad = ({propie,setInmueble}) => {
+const Propiedad = ({propie,setInmueble,eliminarInmueble}) => {
 
 
-  const {titulo,descripcion,precio,direccion,ambientes,metrosTot,metrosCub,calificacion}=propie
+  const {titulo,descripcion,precio,direccion,ambientes,metrosTot,metrosCub,calificacion,id}=propie
+
+  const handleEliminar=()=>{
+
+    const respuesta = confirm("Desea eliminar este inmueble?")
+
+    if(respuesta){
+        eliminarInmueble(id)
+    }
+  }
 
   return (
     <div className='bg-white p-5 mb-3 rounded-md shadow-md flex'>
@@ -39,7 +48,9 @@ const Propiedad = ({propie,setInmueble}) => {
         onClick={()=>setInmueble(propie)}
         >Editar</button>
         <button className='bg-red-600 text-white font-bold p-2  rounded-md uppercase
-        hover:bg-red-700 cursor-pointer transition-colors'>Eliminar</button>
+        hover:bg-red-700 cursor-pointer transition-colors'
+        onClick={handleEliminar}
+        >Eliminar</button>
       </div>
     </div>
   )

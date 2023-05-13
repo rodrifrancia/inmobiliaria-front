@@ -14,7 +14,7 @@ supCubierta
 calificacion
 */
 
-const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setError,fetchInmuebles,estrellas,setEstrellas }) => {
+const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setError,fetchInmuebles }) => {
 
   const [titulo, setTitulo] = useState("");
   const [descripcion, setDescripcion] = useState("");
@@ -23,6 +23,8 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
   const [ambientes, setAmbientes] = useState("");
   const [totales, setTotales] = useState("");
   const [cubiertos, setCubiertos] = useState("");
+  //estrellitas
+  const [estrellas,setEstrellas]=useState("");
   
 
   useEffect(() => {
@@ -34,7 +36,7 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
         setAmbientes(inmueble.ambientes)
         setTotales(inmueble.metrosTot)
         setCubiertos(inmueble.metrosCub)
-        setEstrellas(inmueble.estrellas)
+        setEstrellas(inmueble.calificacion)
     }
 }, [inmueble])
 
@@ -80,7 +82,7 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
           setInmueble({})
           }else{
             //si es crear lo guardamos
-            setInmuebles([...fetchInmuebles,objInmueble])
+            setInmuebles([...inmuebles,objInmueble])
           }
         //limpiar el form
         setTitulo("");
@@ -93,6 +95,8 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
         setEstrellas("");
 
       }
+
+      
 
   return (
     <div className="w-11/12">
@@ -182,7 +186,7 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
         estrellas={estrellas}
         setEstrellas={setEstrellas}
         />
-        {error&&<Error/>}
+        {error&&<Error>Complete todos los campos</Error>}
         <button
           type="submit"
           className="w-full rounded-md bg-sky-600 p-3 mt-4 hover:bg-sky-700 transition-colors cursor-pointer text-white font-bold uppercase"

@@ -1,7 +1,7 @@
 import React from 'react'
 import Propiedad from './Propiedad'
 
-const TablaInmuebles = ({inmuebles,fetchInmuebles,inmueble,setInmueble}) => {
+const TablaInmuebles = ({inmuebles,fetchInmuebles,inmueble,setInmueble,eliminarInmueble}) => {
   return (
     <div className='w-11/12'>
         <h3 className='font-bold text-center uppercase text-2xl '>tabla de propiedades</h3>
@@ -14,6 +14,7 @@ const TablaInmuebles = ({inmuebles,fetchInmuebles,inmueble,setInmueble}) => {
             <Propiedad
             setInmueble={setInmueble}
             propie={propie}
+            eliminarInmueble={eliminarInmueble}
             />
 
             ))}
