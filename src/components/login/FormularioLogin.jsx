@@ -5,9 +5,9 @@ const FormularioLogin = () => {
 
 
 return (
-    <div className="w-full">
-    <div className="flex justify-center items-center w-full">
-        <form action="" className=" bg-white p-16 rounded-md shadow-lg mt-24 mb-24">
+    
+    <div className="flex justify-center items-center w-full mt-10 mb-10 h-2/3">
+        <form action="" className=" bg-white p-16 rounded-md shadow-lg">
         <label className="m-6 uppercase font-bold" htmlFor="usuario">
             Ingrese su Usuario
         </label>
@@ -31,7 +31,7 @@ return (
         </Link>
         </form>
     </div>
-    </div>
+    
 );
 };
 
