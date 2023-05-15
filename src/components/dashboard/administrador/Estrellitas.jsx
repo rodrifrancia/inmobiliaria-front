@@ -9,6 +9,7 @@ function Estrellitas({estrellas,setEstrellas}) {
     const value = event.target.value;
     setRating(value)
     setEstrellas(value)
+    setRating(0)
   };
   
   return (

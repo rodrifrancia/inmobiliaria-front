@@ -1,17 +1,14 @@
 import React from 'react'
 
-const Propiedad = ({propie,setInmueble,eliminarInmueble}) => {
+const Propiedad = ({propie,setInmueble,eliminarInmueble, modal, setModal,setIdEliminar}) => {
 
 
-  const {titulo,descripcion,precio,direccion,ambientes,metrosTot,metrosCub,calificacion,id}=propie
+  const {titulo,descripcion,precio,direccion,ambientes,totales,cubiertos,estrellas,id}=propie
 
   const handleEliminar=()=>{
 
-    const respuesta = confirm("Desea eliminar este inmueble?")
-
-    if(respuesta){
-        eliminarInmueble(id)
-    }
+    setModal(true)
+    setIdEliminar(id)
   }
 
   return (
@@ -33,13 +30,13 @@ const Propiedad = ({propie,setInmueble,eliminarInmueble}) => {
             Ambientes: <span className='text-base font-normal lowercase'>{ambientes}</span>
         </p>
         <p className='font-bold uppercase text-base'>
-            Superficie Total: <span className='text-base font-normal lowercase'>{metrosTot}</span>
+            Superficie Total: <span className='text-base font-normal lowercase'>{totales}</span>
         </p>
         <p className='font-bold uppercase text-base'>
-            Superficie Cubierta: <span className='text-base font-normal lowercase'>{metrosCub}</span>
+            Superficie Cubierta: <span className='text-base font-normal lowercase'>{cubiertos}</span>
         </p>
         <p className='font-bold uppercase text-base'>
-            Calificación: <span className='text-base font-normal lowercase'>{calificacion}</span>
+            Calificación: <span className='text-base font-normal lowercase'>{estrellas}</span>
         </p>
         </div>
       <div className='flex items-center space-x-3'>

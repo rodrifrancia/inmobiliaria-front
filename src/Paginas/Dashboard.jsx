@@ -1,95 +1,80 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../components/reutilizables/Header'
 import Footer from '../components/reutilizables/Footer'
 import Formulario from '../components/dashboard/administrador/Formulario'
 import TablaInmuebles from '../components/dashboard/administrador/TablaInmuebles'
+import Modal from '../components/dashboard/administrador/Modal'
+import { fetchObtenerInmuebles,fetchEliminarInmueble } from '../data/inmuebles'
 
 const Dashboard = () => {
 
-  //arreglo de inmuebles
-  const [inmuebles,setInmuebles] = useState([])
+  //todos los inmuebles
+  const [todosInmuebles, settodosInmuebles] = useState([])
   //objeto inmueble
   const [inmueble, setInmueble] = useState({})
   //mensaje error
   const[error,setError] = useState(false)
-
-
-  const fetchInmuebles =[
-    {
-      id:1,
-      titulo: "Casa en Venta",
-      descripcion: "Hermosa casa en carlos Paz etc...",
-      precio: "786000",
-      direccion:"manzana 94",
-      ambientes: "3",
-      metrosTot: 400,
-      metrosCub: 300,
-      calificacion: 1
-    },
-    {
-      id:2,
-      titulo: "Terreno en Venta",
-      descripcion: "Hermoso terreno en carlos Paz etc...",
-      precio: "234000",
-      direccion:"manzana 21",
-      ambientes: "3",
-      metrosTot: 450,
-      metrosCub: 200,
-      calificacion: 3
-    },
-    {
-      id:3,
-      titulo: "Departamento en Venta",
-      descripcion: "Hermoso departamento en Rio Tercero...",
-      precio: "500000",
-      direccion:"manzana 41",
-      ambientes: "3",
-      metrosTot: 600,
-      metrosCub: 500,
-      calificacion: 4
-    },
-    {
-      id:4,
-      titulo: "Casona en Venta",
-      descripcion: "Hermosa casa en Mayu Sumaj...",
-      precio: "2354000",
-      direccion:"manzana 96",
-      ambientes: "3",
-      metrosTot: 780,
-      metrosCub: 670,
-      calificacion: 5
-    }
-  ]
+  //modal advertencia
+  const[modal,setModal] = useState(false)
   
-  const eliminarInmueble =(id)=>{
-    
-    const inmueblesNoBorrados = fetchInmuebles.filter(inmu=> inmu.id !== id)
-    console.log(inmueblesNoBorrados)
+  const[idEliminar,setIdEliminar] = useState("")
+
+
+  
+
+    useEffect(() => {
+      async function fetchData() {
+        try {
+          const datos = await fetchObtenerInmuebles()
+          settodosInmuebles(datos) 
+        } catch (error) {
+          setError("Error fetching data");
+        }
+      }
+      fetchData();
+    }, []);
+
+  
+  
+  const eliminarInmueble =async (id)=>{
+    const inmueblesNoBorrados  = todosInmuebles.filter(inmu=> inmu.id!==id)
+    settodosInmuebles(inmueblesNoBorrados)
+    await fetchEliminarInmueble(id)
+    await fetchObtenerInmuebles()
   }
-  
+
 
   return (
+    <div>
+    {modal&&<Modal
+    setModal={setModal}
+    eliminarInmueble={eliminarInmueble}
+    idEliminar={idEliminar}
+    setIDeliminar={setIdEliminar}
+    />}
     <div className='flex flex-col h-full '>
         <Header/>
         <div className='flex grid-cols-2 gap-9 lg:p-10 md:p-20 mx-auto min-w-full justify-center'>
         <Formulario
         inmueble={inmueble}
         setInmueble={setInmueble}
-        inmuebles={inmuebles}
-        setInmuebles={setInmuebles}
         error={error}
         setError={setError}
-        fetchInmuebles={fetchInmuebles}
+        todosInmuebles= {todosInmuebles}
+        settodosInmuebles={settodosInmuebles}
         />
         <TablaInmuebles
         //inmueble={inmueble}
         setInmueble={setInmueble}
-        inmuebles={inmuebles}
-        fetchInmuebles={fetchInmuebles}
         eliminarInmueble={eliminarInmueble}
+        todosInmuebles= {todosInmuebles}
+        modal={modal}
+        setModal={setModal}
+        setIdeliminar={setIdEliminar}
         />
         </div>
         <Footer/>
+    </div>
     </div>
   )
 }

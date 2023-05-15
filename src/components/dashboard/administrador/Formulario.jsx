@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import Estrellitas from "./Estrellitas"
 import Error from "./Error";
+import { fetchAgregarinmueble, fetchEditarInmueble, fetchObtenerInmuebles } from "../../../data/inmuebles";
 
 /*
 id
@@ -14,7 +15,7 @@ supCubierta
 calificacion
 */
 
-const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setError,fetchInmuebles }) => {
+const Formulario = ({ inmueble, setInmueble, setInmuebles,error,setError,todosInmuebles, settodosInmuebles }) => {
 
   const [titulo, setTitulo] = useState("");
   const [descripcion, setDescripcion] = useState("");
@@ -34,24 +35,14 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
         setDireccion(inmueble.direccion)
         setPrecio(inmueble.precio)
         setAmbientes(inmueble.ambientes)
-        setTotales(inmueble.metrosTot)
-        setCubiertos(inmueble.metrosCub)
-        setEstrellas(inmueble.calificacion)
-    }
+        setTotales(inmueble.totales)
+        setCubiertos(inmueble.cubiertos)
+        setEstrellas(inmueble.estrellas)
+    } 
 }, [inmueble])
 
 
-  // useEffect(()=>{
-  //   const consultarApi = async()=>{
-  //     const url = "https://www.api.pedidosedificor.com.ar/alumnas"
-  //     const respuesta= await fetch(url)
-  //     const resultado = await respuesta.json()
-  //     console.log(resultado)
-  //   }
-  //   consultarApi()
-  // },[])
-
-      const handleSubmit =(e)=>{
+      const handleSubmit = async (e)=>{
         e.preventDefault()
           //verificamos si hay espacios en blanco
         if([titulo,descripcion,precio,direccion,ambientes,totales,cubiertos,estrellas].includes("")){
@@ -76,13 +67,21 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
           if(inmueble.id){
             //si es editar lo actualizamos
             objInmueble.id= inmueble.id
-            const inmueblesActualizados = inmuebles.map(inmuebleState => inmuebleState.id ===
-              inmueble.id ? objInmueble : inmuebleState)
-          setInmuebles(inmueblesActualizados)
+            const inmueblesActualizados = todosInmuebles.map((inmuebleState) =>{
+              if(inmuebleState.id === inmueble.id){
+                return objInmueble;
+              }else{
+              return inmuebleState;} 
+              }) 
+          settodosInmuebles(inmueblesActualizados) 
+          await fetchEditarInmueble(objInmueble) 
+          await fetchObtenerInmuebles()
           setInmueble({})
           }else{
             //si es crear lo guardamos
-            setInmuebles([...inmuebles,objInmueble])
+            await fetchAgregarinmueble(objInmueble)
+            const inmuebles = await fetchObtenerInmuebles()     
+            settodosInmuebles(inmuebles) 
           }
         //limpiar el form
         setTitulo("");
@@ -93,7 +92,6 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
         setTotales("");
         setCubiertos("");
         setEstrellas("");
-
       }
 
       
@@ -154,7 +152,7 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
           Cantidad de Ambientes:
         </label>
         <input
-          type="text"
+          type="number"
           id="ambientes"
           className="rounded-sm border-2"
           value={ambientes}
@@ -165,7 +163,7 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
           Superficie Total:
         </label>
         <input
-          type="text"
+          type="number"
           id="supTotal"
           className="rounded-sm border-2"
           value={totales}
@@ -176,7 +174,7 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
           Superficie Cubierta:
         </label>
         <input
-          type="text"
+          type="number"
           id="supCubierta"
           className="rounded-sm border-2"
           value={cubiertos}
