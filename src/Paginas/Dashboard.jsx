@@ -17,7 +17,7 @@ const Dashboard = () => {
   //modal advertencia
   const[modal,setModal] = useState(false)
   
-  const[idEliminar,setIdEliminar] = useState("")
+  const[idEliminar,setIdEliminar] = useState(0)
 
 
   
@@ -70,7 +70,7 @@ const Dashboard = () => {
         todosInmuebles= {todosInmuebles}
         modal={modal}
         setModal={setModal}
-        setIdeliminar={setIdEliminar}
+        setIdEliminar={setIdEliminar}
         />
         </div>
         <Footer/>
