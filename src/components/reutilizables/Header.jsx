@@ -41,7 +41,7 @@ const Header = ({isAdmin,setTablaInmu,setTablaUsu,setFormul}) => {
                 >Inicio</Link>
             </li>
             <li className="p-2 hover:-translate-y-px uppercase">
-                <Link to="/Login"
+                <Link to="/Login" 
                 >Ingresar</Link>
             </li>
             <li  className="bg-sky-600 text-white p-2 rounded-sm cursor-pointer hover:-translate-y-px">

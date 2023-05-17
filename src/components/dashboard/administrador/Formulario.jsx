@@ -30,7 +30,7 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
         setTotales(inmueble.totales)
         setCubiertos(inmueble.cubiertos)
         setEstrellas(inmueble.estrellas)
-    }
+    } 
 }, [inmueble])
 
 
@@ -85,6 +85,8 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
           setCubiertos("")
           setEstrellas("")
       }
+
+      
 
   return (
     <div className="w-11/12">
@@ -142,7 +144,7 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
           Cantidad de Ambientes:
         </label>
         <input
-          type="text"
+          type="number"
           id="ambientes"
           className="rounded-sm border-2"
           value={ambientes}
@@ -153,7 +155,7 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
           Superficie Total:
         </label>
         <input
-          type="text"
+          type="number"
           id="supTotal"
           className="rounded-sm border-2"
           value={totales}
@@ -164,7 +166,7 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
           Superficie Cubierta:
         </label>
         <input
-          type="text"
+          type="number"
           id="supCubierta"
           className="rounded-sm border-2"
           value={cubiertos}

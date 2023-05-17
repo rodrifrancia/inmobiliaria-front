@@ -2,6 +2,7 @@ import React, { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import Index from './Paginas/Index.jsx'
 import Login from './Paginas/Login.jsx'
+import Register from './Paginas/Register.jsx'
 import Dashboard from './Paginas/Dashboard.jsx'
 import Register from "./Paginas/Register.jsx"
 import './index.css'
@@ -17,18 +18,19 @@ const router = createBrowserRouter([
         element:<Login/>
     },
     {
-        path:"/dashboard",
-        element:<Dashboard/>
-    },
-    {
         path:"/register",
         element:<Register/>
     },
+    {
+        path:"/dashboard",
+        element:<Dashboard/>
+    }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-   
+
         <RouterProvider router={router}/>
     
     
 )
+

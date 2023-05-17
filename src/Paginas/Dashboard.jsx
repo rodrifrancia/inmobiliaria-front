@@ -41,6 +41,13 @@ const Dashboard = () => {
 
 
   return (
+    <div>
+    {modal&&<Modal
+    setModal={setModal}
+    eliminarInmueble={eliminarInmueble}
+    idEliminar={idEliminar}
+    setIDeliminar={setIdEliminar}
+    />}
     <div className='flex flex-col h-full '>
         <Header
         isAdmin={isAdmin}
@@ -72,6 +79,7 @@ const Dashboard = () => {
         )}
         
         <Footer/>
+    </div>
     </div>
   )
 }
