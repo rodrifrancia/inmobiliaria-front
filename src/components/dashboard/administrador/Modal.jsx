@@ -3,7 +3,7 @@ import Mensaje from './Mensaje'
 
 const Modal = ({setModal,idEliminar,setIdEliminar,eliminarInmueble}) => {
   return (
-    <div className='fixed flex items-center inset-0 w-full bg-sky-900'>
+    <div className='fixed flex items-center inset-0 w-full bg-black bg-opacity-75'>
     <Mensaje
     setModal={setModal}
     idEliminar={idEliminar}

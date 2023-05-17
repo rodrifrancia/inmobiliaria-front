@@ -1,7 +1,7 @@
 {
   "fetchInmuebles": [
     {
-      "titulo": "dddddddddddd",
+      "titulo": "casa",
       "descripcion": "casa linda",
       "precio": "400",
       "direccion": "lejos",
@@ -12,13 +12,13 @@
       "id": 1
     },
     {
-      "titulo": "casa 2",
-      "descripcion": "asd",
-      "precio": "34",
-      "direccion": "23sdfsdf",
-      "ambientes": "3",
-      "totales": "435",
-      "cubiertos": "345",
+      "titulo": "asd",
+      "descripcion": "ads",
+      "precio": "345",
+      "direccion": "435",
+      "ambientes": "345",
+      "totales": "345",
+      "cubiertos": "435",
       "estrellas": "3",
       "id": 2
     }
