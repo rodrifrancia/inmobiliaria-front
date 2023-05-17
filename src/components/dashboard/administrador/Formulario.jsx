@@ -1,21 +1,11 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import Estrellitas from "./Estrellitas"
-import Error from "./Error";
+import Estrellitas from "./Estrellitas";
+import Error from "./Error"
 import { fetchAgregarinmueble, fetchEditarInmueble, fetchObtenerInmuebles } from "../../../data/inmuebles";
 
-/*
-id
-descripcion
-direccion
-precio
-ambientes
-supTotal
-supCubierta
-calificacion
-*/
 
-const Formulario = ({ inmueble, setInmueble, setInmuebles,error,setError,todosInmuebles, settodosInmuebles }) => {
+const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setError,todosInmuebles, settodosInmuebles }) => {
 
   const [titulo, setTitulo] = useState("");
   const [descripcion, setDescripcion] = useState("");
@@ -24,8 +14,10 @@ const Formulario = ({ inmueble, setInmueble, setInmuebles,error,setError,todosIn
   const [ambientes, setAmbientes] = useState("");
   const [totales, setTotales] = useState("");
   const [cubiertos, setCubiertos] = useState("");
-  //estrellitas
+  //estrellas
   const [estrellas,setEstrellas]=useState("");
+  //mensaje error
+  const[mensaje,setMensaje]=useState("")
   
 
   useEffect(() => {
@@ -42,10 +34,12 @@ const Formulario = ({ inmueble, setInmueble, setInmuebles,error,setError,todosIn
 }, [inmueble])
 
 
-      const handleSubmit = async (e)=>{
+
+      const handleSubmit = async(e)=>{
         e.preventDefault()
           //verificamos si hay espacios en blanco
         if([titulo,descripcion,precio,direccion,ambientes,totales,cubiertos,estrellas].includes("")){
+          setMensaje("Complete todos los campos")
           setError(true)
           return;
         }
@@ -62,7 +56,6 @@ const Formulario = ({ inmueble, setInmueble, setInmuebles,error,setError,todosIn
             estrellas
           }
           setError(false)
-          
         
           if(inmueble.id){
             //si es editar lo actualizamos
@@ -83,15 +76,14 @@ const Formulario = ({ inmueble, setInmueble, setInmuebles,error,setError,todosIn
             const inmuebles = await fetchObtenerInmuebles()     
             settodosInmuebles(inmuebles) 
           }
-        //limpiar el form
-        setTitulo("");
-        setDescripcion("");
-        setPrecio("");
-        setDireccion("");
-        setAmbientes("");
-        setTotales("");
-        setCubiertos("");
-        setEstrellas("");
+          setTitulo("")
+          setDescripcion("")
+          setDireccion("")
+          setPrecio("")
+          setAmbientes("")
+          setTotales("")
+          setCubiertos("")
+          setEstrellas("")
       }
 
       
@@ -137,7 +129,7 @@ const Formulario = ({ inmueble, setInmueble, setInmuebles,error,setError,todosIn
           onChange={(e) => setPrecio(e.target.value)}
         />
 
-<label htmlFor="direccion" className="font-bold uppercase p-1">
+        <label htmlFor="direccion" className="font-bold uppercase p-1">
           Ingrese Direccion:
         </label>
         <input
@@ -184,7 +176,7 @@ const Formulario = ({ inmueble, setInmueble, setInmuebles,error,setError,todosIn
         estrellas={estrellas}
         setEstrellas={setEstrellas}
         />
-        {error&&<Error>Complete todos los campos</Error>}
+        {error&&<Error>{mensaje}</Error>}
         <button
           type="submit"
           className="w-full rounded-md bg-sky-600 p-3 mt-4 hover:bg-sky-700 transition-colors cursor-pointer text-white font-bold uppercase"

@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Header from '../components/reutilizables/Header'
 import Footer from '../components/reutilizables/Footer'
 import Formulario from '../components/dashboard/administrador/Formulario'
 import TablaInmuebles from '../components/dashboard/administrador/TablaInmuebles'
-import Modal from '../components/dashboard/administrador/Modal'
-import { fetchObtenerInmuebles,fetchEliminarInmueble } from '../data/inmuebles'
+import { fetchObtenerInmuebles } from '../data/inmuebles'
+import TablaUsuarios from '../components/dashboard/administrador/TablaUsuarios'
+
 
 const Dashboard = () => {
 
@@ -14,11 +15,14 @@ const Dashboard = () => {
   const [inmueble, setInmueble] = useState({})
   //mensaje error
   const[error,setError] = useState(false)
-  //modal advertencia
-  const[modal,setModal] = useState(false)
-  
+  //id para eliminar
   const[idEliminar,setIdEliminar] = useState(0)
-
+   //es administrador?
+  const[isAdmin,setIsAdmin] = useState(true)
+  const[formul,setFormul] = useState(true)
+  const[tablaInmu,setTablaInmu] = useState(true)
+  const[tablaUsu,setTablaUsu] = useState(false)
+  const[todosUsuarios,setTodosUsuarios]=useState([])
 
   
 
@@ -27,21 +31,13 @@ const Dashboard = () => {
         try {
           const datos = await fetchObtenerInmuebles()
           settodosInmuebles(datos) 
+          
         } catch (error) {
           setError("Error fetching data");
         }
       }
       fetchData();
     }, []);
-
-  
-  
-  const eliminarInmueble =async (id)=>{
-    const inmueblesNoBorrados  = todosInmuebles.filter(inmu=> inmu.id!==id)
-    settodosInmuebles(inmueblesNoBorrados)
-    await fetchEliminarInmueble(id)
-    await fetchObtenerInmuebles()
-  }
 
 
   return (
@@ -53,26 +49,35 @@ const Dashboard = () => {
     setIDeliminar={setIdEliminar}
     />}
     <div className='flex flex-col h-full '>
-        <Header/>
-        <div className='flex grid-cols-2 gap-9 lg:p-10 md:p-20 mx-auto min-w-full justify-center'>
-        <Formulario
-        inmueble={inmueble}
-        setInmueble={setInmueble}
-        error={error}
-        setError={setError}
-        todosInmuebles= {todosInmuebles}
-        settodosInmuebles={settodosInmuebles}
+        <Header
+        isAdmin={isAdmin}
+        setFormul={setFormul}
+        setTablaUsu={setTablaUsu}
+        setTablaInmu={setTablaInmu}
         />
-        <TablaInmuebles
-        //inmueble={inmueble}
-        setInmueble={setInmueble}
-        eliminarInmueble={eliminarInmueble}
-        todosInmuebles= {todosInmuebles}
-        modal={modal}
-        setModal={setModal}
-        setIdEliminar={setIdEliminar}
-        />
-        </div>
+        {formul&&tablaInmu?(
+          <div className='flex grid-cols-2 gap-9 lg:p-10 md:p-20 mx-auto min-w-full justify-center'>
+          <Formulario
+          inmueble={inmueble}
+          setInmueble={setInmueble}
+          error={error}
+          setError={setError}
+          todosInmuebles= {todosInmuebles}
+          settodosInmuebles={settodosInmuebles}
+          />
+          <TablaInmuebles
+          todosInmuebles= {todosInmuebles}
+          settodosInmuebles={settodosInmuebles}
+          setInmueble={setInmueble}
+          />
+          </div>
+        ):(
+          <TablaUsuarios
+          todosUsuarios={todosUsuarios}
+          setTodosUsuarios={setTodosUsuarios}
+          />
+        )}
+        
         <Footer/>
     </div>
     </div>

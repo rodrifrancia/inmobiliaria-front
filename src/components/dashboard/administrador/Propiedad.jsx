@@ -1,18 +1,29 @@
 import React from 'react'
+import Modal from "./Modal"
+import { useState } from 'react'
 
-const Propiedad = ({propie,setInmueble,eliminarInmueble, modal, setModal,setIdEliminar}) => {
+const Propiedad = ({propie,settodosInmuebles,setInmueble}) => {
+
+//modal advertencia
+const[modal,setModal] = useState(false)
+const[idEliminar,setIdEliminar]= useState("")
+
+    const handleEliminar=()=>{
+        setModal(true)
+        setIdEliminar(id)
+    }
 
 
-  const {titulo,descripcion,precio,direccion,ambientes,totales,cubiertos,estrellas,id}=propie
+const {titulo,descripcion,precio,direccion,ambientes,totales,cubiertos,estrellas,id}=propie
 
-  const handleEliminar=()=>{
-
-    setModal(true)
-    setIdEliminar(id)
-  }
-
-  return (
+return (
     <div className='bg-white p-5 mb-3 rounded-md shadow-md flex'>
+        {modal&&<Modal
+        idEliminar={idEliminar}
+        setModal={setModal}
+        queEliminar={"propiedad"}
+        settodosInmuebles={settodosInmuebles}
+        />}
         <div className='flex-grow'>
         <p className='font-bold uppercase text-base'>
             Titulo: <span className='text-base font-normal lowercase'>{titulo}</span>
@@ -39,18 +50,18 @@ const Propiedad = ({propie,setInmueble,eliminarInmueble, modal, setModal,setIdEl
             Calificación: <span className='text-base font-normal lowercase'>{estrellas}</span>
         </p>
         </div>
-      <div className='flex items-center space-x-3'>
+    <div className='flex items-center space-x-3'>
         <button className='bg-emerald-600 text-white font-bold p-2  rounded-md uppercase
         hover:bg-emerald-700 cursor-pointer transition-colors'
-        onClick={()=>setInmueble(propie)}
+        onClick={()=>{setInmueble(propie)}}
         >Editar</button>
         <button className='bg-red-600 text-white font-bold p-2  rounded-md uppercase
         hover:bg-red-700 cursor-pointer transition-colors'
         onClick={handleEliminar}
         >Eliminar</button>
-      </div>
     </div>
-  )
+    </div>
+)
 }
 
 export default Propiedad

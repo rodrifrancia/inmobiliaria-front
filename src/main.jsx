@@ -4,6 +4,7 @@ import Index from './Paginas/Index.jsx'
 import Login from './Paginas/Login.jsx'
 import Register from './Paginas/Register.jsx'
 import Dashboard from './Paginas/Dashboard.jsx'
+import Register from "./Paginas/Register.jsx"
 import './index.css'
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
 
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
     },
     {
         path:"/dashboard",
-        element:<Dashboard/>,
+        element:<Dashboard/>
     }
 ])
 
