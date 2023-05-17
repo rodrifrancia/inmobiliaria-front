@@ -1,93 +1,76 @@
-import React, { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Header from '../components/reutilizables/Header'
 import Footer from '../components/reutilizables/Footer'
 import Formulario from '../components/dashboard/administrador/Formulario'
 import TablaInmuebles from '../components/dashboard/administrador/TablaInmuebles'
+import { fetchObtenerInmuebles } from '../data/inmuebles'
+import TablaUsuarios from '../components/dashboard/administrador/TablaUsuarios'
+
 
 const Dashboard = () => {
 
-  //arreglo de inmuebles
-  const [inmuebles,setInmuebles] = useState([])
+  //todos los inmuebles
+  const [todosInmuebles, settodosInmuebles] = useState([])
   //objeto inmueble
   const [inmueble, setInmueble] = useState({})
   //mensaje error
   const[error,setError] = useState(false)
-  //estrellitas
-  const [estrellas,setEstrellas]=useState("");
+  //id para eliminar
+  const[idEliminar,setIdEliminar] = useState(0)
+   //es administrador?
+  const[isAdmin,setIsAdmin] = useState(true)
+  const[formul,setFormul] = useState(true)
+  const[tablaInmu,setTablaInmu] = useState(true)
+  const[tablaUsu,setTablaUsu] = useState(false)
+  const[todosUsuarios,setTodosUsuarios]=useState([])
 
-  console.log(inmueble)
+  
 
-  const fetchInmuebles =[
-    {
-      id:1,
-      titulo: "Casa en Venta",
-      descripcion: "Hermosa casa en carlos Paz etc...",
-      precio: "786000",
-      direccion:"manzana 94",
-      ambientes: "3",
-      metrosTot: 400,
-      metrosCub: 300,
-      calificacion: 1
-    },
-    {
-      id:2,
-      titulo: "Terreno en Venta",
-      descripcion: "Hermoso terreno en carlos Paz etc...",
-      precio: "234000",
-      direccion:"manzana 21",
-      ambientes: "3",
-      metrosTot: 400,
-      metrosCub: 300,
-      calificacion: 3
-    },
-    {
-      id:3,
-      titulo: "Departamento en Venta",
-      descripcion: "Hermoso departamento en Rio Tercero...",
-      precio: "500000",
-      direccion:"manzana 41",
-      ambientes: "3",
-      metrosTot: 400,
-      metrosCub: 300,
-      calificacion: 4
-    },
-    {
-      id:4,
-      titulo: "Casona en Venta",
-      descripcion: "Hermosa casa en Mayu Sumaj...",
-      precio: "2354000",
-      direccion:"manzana 96",
-      ambientes: "3",
-      metrosTot: 400,
-      metrosCub: 300,
-      calificacion: 5
-    }
-  ]
-  
-  
+    useEffect(() => {
+      async function fetchData() {
+        try {
+          const datos = await fetchObtenerInmuebles()
+          settodosInmuebles(datos) 
+          
+        } catch (error) {
+          setError("Error fetching data");
+        }
+      }
+      fetchData();
+    }, []);
+
 
   return (
     <div className='flex flex-col h-full '>
-        <Header/>
-        <div className='flex grid-cols-2 gap-9 lg:p-10 md:p-20 mx-auto min-w-full justify-center'>
-        <Formulario
-        inmueble={inmueble}
-        setInmueble={setInmueble}
-        inmuebles={inmuebles}
-        setInmuebles={setInmuebles}
-        error={error}
-        setError={setError}
-        fetchInmuebles={fetchInmuebles}
-        estrellas={estrellas}
-        setEstrellas={setEstrellas}
+        <Header
+        isAdmin={isAdmin}
+        setFormul={setFormul}
+        setTablaUsu={setTablaUsu}
+        setTablaInmu={setTablaInmu}
         />
-        <TablaInmuebles
-        //inmueble={inmueble}
-        setInmueble={setInmueble}
-        inmuebles={inmuebles}
-        fetchInmuebles={fetchInmuebles}
-        />
-        </div>
+        {formul&&tablaInmu?(
+          <div className='flex grid-cols-2 gap-9 lg:p-10 md:p-20 mx-auto min-w-full justify-center'>
+          <Formulario
+          inmueble={inmueble}
+          setInmueble={setInmueble}
+          error={error}
+          setError={setError}
+          todosInmuebles= {todosInmuebles}
+          settodosInmuebles={settodosInmuebles}
+          />
+          <TablaInmuebles
+          todosInmuebles= {todosInmuebles}
+          settodosInmuebles={settodosInmuebles}
+          setInmueble={setInmueble}
+          />
+          </div>
+        ):(
+          <TablaUsuarios
+          todosUsuarios={todosUsuarios}
+          setTodosUsuarios={setTodosUsuarios}
+          />
+        )}
+        
         <Footer/>
     </div>
   )

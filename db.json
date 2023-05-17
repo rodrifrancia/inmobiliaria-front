@@ -1,0 +1,60 @@
+{
+  "fetchInmuebles": [
+    {
+      "titulo": "jeje",
+      "descripcion": "asdas",
+      "precio": "222",
+      "direccion": "222",
+      "ambientes": "22",
+      "totales": "22",
+      "cubiertos": "222",
+      "estrellas": "4",
+      "id": 2
+    },
+    {
+      "titulo": "casa2",
+      "descripcion": "asd",
+      "precio": "32",
+      "direccion": "45",
+      "ambientes": "43",
+      "totales": "34",
+      "cubiertos": "435",
+      "estrellas": "3",
+      "id": 3
+    },
+    {
+      "titulo": "casa decente",
+      "descripcion": "asd",
+      "precio": "234",
+      "direccion": "234",
+      "ambientes": "234",
+      "totales": "234",
+      "cubiertos": "234",
+      "estrellas": "1",
+      "id": 4
+    }
+  ],
+  "fetchUsuarios": [
+    {
+      "nombre": "Juan",
+      "apellido": "Perez",
+      "mail": "ejeyd@example.com",
+      "tipo": "admin",
+      "id": 1
+    },
+    {
+      "nombre": "Rodrigo",
+      "apellido": "Francia",
+      "mail": "rodri@rodri.com",
+      "tipo": "admin",
+      "id": 2
+    },
+    {
+      "nombre": "alejandro",
+      "apellido": "guzman",
+      "mail": "asd@asd.com",
+      "contrasenia": "123",
+      "id": 3
+    }
+  ]
+}

@@ -3,7 +3,7 @@ import CorreoImg from "../../img/correo.png";
 import TelefonoImg from "../../img/telefono.png";
 import { Outlet,Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({isAdmin,setTablaInmu,setTablaUsu,setFormul}) => {
     
     
     return (
@@ -26,6 +26,16 @@ const Header = () => {
         </h3>
         <nav>
         <ul className="flex space-x-16 pt-4 text-sky-600 font-bold uppercase">
+            {isAdmin?(
+                <li>
+                <button className="p-2 hover:-translate-y-px uppercase"
+                onClick={()=>{
+                setTablaUsu(true)
+                setFormul(false)
+                setTablaInmu(false)}}
+                >Usuarios</button>
+                </li>
+            ):(null)}
             <li className="p-2 hover:-translate-y-px uppercase">
                 <Link to="/" 
                 >Inicio</Link>
@@ -35,7 +45,7 @@ const Header = () => {
                 >Ingresar</Link>
             </li>
             <li  className="bg-sky-600 text-white p-2 rounded-sm cursor-pointer hover:-translate-y-px">
-                <Link to="/Registro"
+                <Link to="/Register"
                 >Registrarse</Link>
             </li>
         </ul>

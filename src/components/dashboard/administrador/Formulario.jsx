@@ -1,20 +1,11 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import Estrellitas from "./Estrellitas"
-import Error from "./Error";
+import Estrellitas from "./Estrellitas";
+import Error from "./Error"
+import { fetchAgregarinmueble, fetchEditarInmueble, fetchObtenerInmuebles } from "../../../data/inmuebles";
 
-/*
-id
-descripcion
-direccion
-precio
-ambientes
-supTotal
-supCubierta
-calificacion
-*/
 
-const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setError,fetchInmuebles,estrellas,setEstrellas }) => {
+const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setError,todosInmuebles, settodosInmuebles }) => {
 
   const [titulo, setTitulo] = useState("");
   const [descripcion, setDescripcion] = useState("");
@@ -23,6 +14,10 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
   const [ambientes, setAmbientes] = useState("");
   const [totales, setTotales] = useState("");
   const [cubiertos, setCubiertos] = useState("");
+  //estrellas
+  const [estrellas,setEstrellas]=useState("");
+  //mensaje error
+  const[mensaje,setMensaje]=useState("")
   
 
   useEffect(() => {
@@ -32,27 +27,19 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
         setDireccion(inmueble.direccion)
         setPrecio(inmueble.precio)
         setAmbientes(inmueble.ambientes)
-        setTotales(inmueble.metrosTot)
-        setCubiertos(inmueble.metrosCub)
+        setTotales(inmueble.totales)
+        setCubiertos(inmueble.cubiertos)
         setEstrellas(inmueble.estrellas)
     }
 }, [inmueble])
 
 
-  // useEffect(()=>{
-  //   const consultarApi = async()=>{
-  //     const url = "https://www.api.pedidosedificor.com.ar/alumnas"
-  //     const respuesta= await fetch(url)
-  //     const resultado = await respuesta.json()
-  //     console.log(resultado)
-  //   }
-  //   consultarApi()
-  // },[])
 
-      const handleSubmit =(e)=>{
+      const handleSubmit = async(e)=>{
         e.preventDefault()
           //verificamos si hay espacios en blanco
         if([titulo,descripcion,precio,direccion,ambientes,totales,cubiertos,estrellas].includes("")){
+          setMensaje("Complete todos los campos")
           setError(true)
           return;
         }
@@ -69,29 +56,34 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
             estrellas
           }
           setError(false)
-          
         
           if(inmueble.id){
             //si es editar lo actualizamos
             objInmueble.id= inmueble.id
-            const inmueblesActualizados = inmuebles.map(inmuebleState => inmuebleState.id ===
-              inmueble.id ? objInmueble : inmuebleState)
-          setInmuebles(inmueblesActualizados)
+            const inmueblesActualizados = todosInmuebles.map((inmuebleState) =>{
+              if(inmuebleState.id === inmueble.id){
+                return objInmueble;
+              }else{
+              return inmuebleState;} 
+              }) 
+          settodosInmuebles(inmueblesActualizados) 
+          await fetchEditarInmueble(objInmueble) 
+          await fetchObtenerInmuebles()
           setInmueble({})
           }else{
             //si es crear lo guardamos
-            setInmuebles([...fetchInmuebles,objInmueble])
+            await fetchAgregarinmueble(objInmueble)
+            const inmuebles = await fetchObtenerInmuebles()     
+            settodosInmuebles(inmuebles) 
           }
-        //limpiar el form
-        setTitulo("");
-        setDescripcion("");
-        setPrecio("");
-        setDireccion("");
-        setAmbientes("");
-        setTotales("");
-        setCubiertos("");
-        setEstrellas("");
-
+          setTitulo("")
+          setDescripcion("")
+          setDireccion("")
+          setPrecio("")
+          setAmbientes("")
+          setTotales("")
+          setCubiertos("")
+          setEstrellas("")
       }
 
   return (
@@ -135,7 +127,7 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
           onChange={(e) => setPrecio(e.target.value)}
         />
 
-<label htmlFor="direccion" className="font-bold uppercase p-1">
+        <label htmlFor="direccion" className="font-bold uppercase p-1">
           Ingrese Direccion:
         </label>
         <input
@@ -182,7 +174,7 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
         estrellas={estrellas}
         setEstrellas={setEstrellas}
         />
-        {error&&<Error/>}
+        {error&&<Error>{mensaje}</Error>}
         <button
           type="submit"
           className="w-full rounded-md bg-sky-600 p-3 mt-4 hover:bg-sky-700 transition-colors cursor-pointer text-white font-bold uppercase"

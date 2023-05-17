@@ -4,13 +4,12 @@ import imgCasa from "../img/casa1.jpg";
 import Header from "../components/reutilizables/Header";
 import ListadoOfertas from "../components/index/ListadoOfertas";
 import Principal from "../components/index/Principal";
-import Formulario from "../components/dashboard/administrador/Formulario";
-import TablaInmuebles from "../components/dashboard/administrador/TablaInmuebles";
 
 function App() {
   const [principal, setPrincipal] = useState(true);
   const [formu, setFormu] = useState(false);
   const [tabla, setTabla] = useState(false);
+ 
 
   const propiedades = [
     {
