@@ -7,7 +7,9 @@ const FormularioRegistro = () => {
 
     const[nombre,setNombre]=useState("")
     const[apellido,setApellido]=useState("")
-    const[mail,setMail]=useState("")
+    const[email,setEmail]=useState("")
+    const[telefono,setTelefono] =useState("")
+    const[tipo,setTipo]=useState("")
     const[contrasenia,setContrasenia]=useState("")
     const[repContra,setRepContra]= useState("")
     //mensajeError
@@ -16,7 +18,7 @@ const FormularioRegistro = () => {
 
     const handleSubmit=(e)=>{
         e.preventDefault()
-        if([nombre,apellido,mail,contrasenia,repContra].includes("")){
+        if([nombre,apellido,email,telefono,contrasenia,repContra].includes("")){
             setMensaje("Complete todos los campos")
             setError(true)
             return;
@@ -27,7 +29,7 @@ const FormularioRegistro = () => {
             return;
         }
         let regex = new RegExp("([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])");
-        if(!regex.test(mail)){
+        if(!regex.test(email)){
         setMensaje("el formato de mail no es valido")
         setError(true)
         return;
@@ -36,7 +38,9 @@ const FormularioRegistro = () => {
         const objUsuario={
             nombre,
             apellido,
-            mail,
+            email,
+            telefono,
+            tipo,
             contrasenia
         }
         //enviamos el objeto al backend
@@ -44,7 +48,8 @@ const FormularioRegistro = () => {
         //limpiamos el form
         setNombre("")
         setApellido("")
-        setMail("")
+        setEmail("")
+        setTelefono("")
         setContrasenia("")
         setRepContra("")
         setMensaje("")
@@ -89,14 +94,24 @@ return (
             className="border-2  p-1.5 rounded-sm mb-2 w-full"
             type="email"
             id="mail"
-            value={mail}
-            onChange={(e) => setMail(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+        />
+        <label className="uppercase font-bold" htmlFor="telefono">
+            Teléfono:
+        </label>
+        <input
+            className="border-2  p-1.5 rounded-sm mb-2 w-full"
+            type="telefono"
+            id="telefono"
+            value={telefono}
+            onChange={(e) => setTelefono(e.target.value)}
         />
         <label className="uppercase font-bold " htmlFor="contrasenia">
             Contraseña:
         </label>
         <input
-            className="border-2  p-1.5 rounded-sm mb-2 w-full"
+            className="border-2 p-1.5 rounded-sm mb-2 w-full"
             type="password"
             id='contrasenia'
             value={contrasenia}

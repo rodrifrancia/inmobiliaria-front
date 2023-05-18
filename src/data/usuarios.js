@@ -41,3 +41,25 @@ export async function fetchEliminarUsuario(id){
         return result
     }
 }
+
+export async function fetchEditarUsuario(nombre,apellido,email,telefono,tipo,idUsuario){
+    try {
+        const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/fetchUsuarios/${idUsuario}`,{
+            method: 'PUT',
+            body: JSON.stringify({
+                nombre,
+                apellido,
+                email,
+                telefono,
+                tipo,
+                idUsuario
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            return respuesta
+    } catch (error) {
+        console.log(error)
+    }
+}

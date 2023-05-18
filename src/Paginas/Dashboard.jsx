@@ -5,6 +5,7 @@ import Formulario from '../components/dashboard/administrador/Formulario'
 import TablaInmuebles from '../components/dashboard/administrador/TablaInmuebles'
 import { fetchObtenerInmuebles } from '../data/inmuebles'
 import TablaUsuarios from '../components/dashboard/administrador/TablaUsuarios'
+import EditarUsuario from '../components/dashboard/administrador/EditarUsuario'
 
 
 const Dashboard = () => {
@@ -23,15 +24,17 @@ const Dashboard = () => {
   const[tablaInmu,setTablaInmu] = useState(true)
   const[tablaUsu,setTablaUsu] = useState(false)
   const[todosUsuarios,setTodosUsuarios]=useState([])
+  //editar usuario
+  const[editUsua,setEditUsua] = useState(false)
+  const[usuario,setUsuario] = useState([])
+  const[tiposUsu,setTiposUsu] = useState([])
 
   
-
     useEffect(() => {
       async function fetchData() {
         try {
           const datos = await fetchObtenerInmuebles()
-          settodosInmuebles(datos) 
-          
+          settodosInmuebles(datos)
         } catch (error) {
           setError("Error fetching data");
         }
@@ -41,14 +44,7 @@ const Dashboard = () => {
 
 
   return (
-    <div>
-    {modal&&<Modal
-    setModal={setModal}
-    eliminarInmueble={eliminarInmueble}
-    idEliminar={idEliminar}
-    setIDeliminar={setIdEliminar}
-    />}
-    <div className='flex flex-col h-full '>
+    <div className='flex flex-col h-full'>
         <Header
         isAdmin={isAdmin}
         setFormul={setFormul}
@@ -72,14 +68,26 @@ const Dashboard = () => {
           />
           </div>
         ):(
+          <div className='min-h-screen'>
+            {editUsua&&
+            <EditarUsuario
+            usuario={usuario}
+            setEditUsua={setEditUsua}
+            tiposUsu={tiposUsu}
+            setTodosUsuarios={setTodosUsuarios}
+            />
+            }
           <TablaUsuarios
           todosUsuarios={todosUsuarios}
           setTodosUsuarios={setTodosUsuarios}
+          setEditUsua={setEditUsua}
+          setUsuario={setUsuario}
+          setTiposUsu={setTiposUsu}
           />
+          </div>
         )}
         
         <Footer/>
-    </div>
     </div>
   )
 }
