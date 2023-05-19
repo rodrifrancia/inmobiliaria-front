@@ -176,7 +176,7 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
         estrellas={estrellas}
         setEstrellas={setEstrellas}
         />
-        {error&&<Error>{mensaje}</Error>}
+        {error?<Error>{mensaje}</Error>:null}
         <button
           type="submit"
           className="w-full rounded-md bg-sky-600 p-3 mt-4 hover:bg-sky-700 transition-colors cursor-pointer text-white font-bold uppercase"

@@ -41,8 +41,7 @@ const Dashboard = () => {
       }
       fetchData();
     }, []);
-
-
+    
   return (
     <div className='flex flex-col h-full'>
         <Header

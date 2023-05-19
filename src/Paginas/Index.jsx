@@ -4,12 +4,15 @@ import imgCasa from "../img/casa1.jpg";
 import Header from "../components/reutilizables/Header";
 import ListadoOfertas from "../components/index/ListadoOfertas";
 import Principal from "../components/index/Principal";
+import Inmueble from "../components/index/Inmueble";
 
 function App() {
   const [principal, setPrincipal] = useState(true);
   const [formu, setFormu] = useState(false);
   const [tabla, setTabla] = useState(false);
- 
+  //vista inmueble
+  const[vistaInmu,setVistaInmu]=useState(false)
+
 
   const propiedades = [
     {
@@ -64,11 +67,23 @@ function App() {
 
   return (
     <div>
-      <Header />
-        <Principal />
+      <Header/>
+      {vistaInmu?(
+        <Inmueble
+        setPrincipal={setPrincipal}
+        setVistaInmu={set}
+        />
+      ):(
+        <>
+        <Principal/>
         <div className="flex justify-center">
-          <ListadoOfertas propiedades={propiedades} />
+          <ListadoOfertas
+          propiedades={propiedades}
+          setVistaInmu={setVistaInmu}
+          />
         </div>
+        </>
+      )}
       <Footer />
     </div>
   );

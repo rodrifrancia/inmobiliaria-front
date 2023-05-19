@@ -24,13 +24,13 @@ const TablaInmuebles = ({todosInmuebles,settodosInmuebles,setInmueble}) => {
               <>
                 {todosInmuebles.filter((inmu) => {
                     const buscarMin= buscar.toLowerCase()
-                    return inmu.titulo.includes(buscarMin)
-                    ||inmu.descripcion.includes(buscarMin)
-                    ||inmu.precio.includes(buscarMin)
-                    ||inmu.direccion.includes(buscarMin)
-                    ||inmu.totales.includes(buscarMin)
-                    ||inmu.cubiertos.includes(buscarMin)
-                    ||inmu.estrellas.includes(buscarMin)
+                    return inmu.titulo.toLowerCase().includes(buscarMin)
+                    ||inmu.descripcion.toLowerCase().includes(buscarMin)
+                    ||inmu.precio.toLowerCase().includes(buscarMin)
+                    ||inmu.direccion.toLowerCase().includes(buscarMin)
+                    ||inmu.totales.toLowerCase().includes(buscarMin)
+                    ||inmu.cubiertos.toLowerCase().includes(buscarMin)
+                    ||inmu.estrellas.toLowerCase().includes(buscarMin)
                   })
                   .map((propie) => (
                     <Propiedad
