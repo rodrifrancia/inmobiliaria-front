@@ -2,15 +2,19 @@ import React from 'react'
 import Modal from "./Modal"
 import { useState } from 'react'
 
-const Propiedad = ({propie,settodosInmuebles,setInmueble}) => {
+
+
+const Propiedad = ({propie,settodosInmuebles,setInmueble }) => {
 
 //modal advertencia
 const[modal,setModal] = useState(false)
 const[idEliminar,setIdEliminar]= useState("")
+const[eliminarPropie,setEliminarPropie]=useState("")
 
     const handleEliminar=()=>{
         setModal(true)
         setIdEliminar(id)
+        setEliminarPropie(propie)
     }
 
 
@@ -23,6 +27,7 @@ return (
         setModal={setModal}
         queEliminar={"propiedad"}
         settodosInmuebles={settodosInmuebles}
+        eliminarPropie={eliminarPropie}
         />}
         <div className='flex-grow'>
         <p className='font-bold uppercase text-base'>

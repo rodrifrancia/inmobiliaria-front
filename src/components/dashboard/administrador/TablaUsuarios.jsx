@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import { fetchObtenerUsuarios } from "../../../data/usuarios";
 import Usuario from "./Usuario";
 import Modal from "./Modal";
+import "animate.css"
 
-const TablaUsuarios = ({fetchEliminarUsuario,todosUsuarios,setTodosUsuarios,setEditUsua,setUsuario,setTiposUsu}) => {
-    const [hideTable, setHideTable] = useState(false);
+const TablaUsuarios = ({fetchEliminarUsuario,todosUsuarios,setTodosUsuarios,editUsua, setEditUsua,setUsuario,setTiposUsu}) => {
     const [idEliminar, setIdEliminar] = useState(null);
     const[modal,setModal] = useState(false);
+    const[eliminarUsu,setEliminarUsu]=useState("")
+
     useEffect(()=>{
         async function fetchData(){
             try {
@@ -19,18 +21,21 @@ const TablaUsuarios = ({fetchEliminarUsuario,todosUsuarios,setTodosUsuarios,setE
         fetchData();
     },[])
 return (
-        <>                
-        {modal&& <Modal
-        idEliminar={idEliminar}
-        queEliminar={"usuario"}
-        setModal={setModal}
-        setHideTable={setHideTable}
-        setTodosUsuarios={setTodosUsuarios}
-        />}
-        <div className={` ${ hideTable ? "block justify-center w-3/4 m-auto bg-white rounded-md shadow-md" : "block justify-center w-3/4 m-auto bg-white mt-10 mb-10 rounded-md shadow-md" }`}>
-            <h3 className="block font-bold text-xl text-center p-4 border-2">TABLA DE USUARIOS</h3>
+    <>                
+        {modal?(
+            <Modal
+            idEliminar={idEliminar}
+            queEliminar={"usuario"}
+            setModal={setModal}
+            setTodosUsuarios={setTodosUsuarios}
+            eliminarUsu={eliminarUsu}
+            />
+        ):(
+            <>
+            <h3 className="flex justify-center mx-auto w-3/4 mt-20 items-center font-bold text-xl text-center p-4 bg-white">TABLA DE USUARIOS</h3>
+        <div className="animate__animated animate__fadeIn justify-center w-3/4 m-auto bg-white mb-10 rounded-md shadow-md max-h-96 overflow-auto">
         <table className="w-full shadow-md ">
-            <thead className="">
+            <thead>
             <tr className="border-2 bg-gray-200">
                 <th>Nombre</th>
                 <th>Apellido</th>
@@ -48,12 +53,13 @@ return (
                         key={usua.id}
                         usua={usua}
                         fetchEliminarUsuario={fetchEliminarUsuario}
-                        setHideTable={setHideTable}
                         setModal={setModal}
                         setIdEliminar={setIdEliminar}
+                        editUsua={editUsua}
                         setEditUsua={setEditUsua}
                         setUsuario={setUsuario}
                         setTiposUsu={setTiposUsu}
+                        setEliminarUsu={setEliminarUsu}
                         />
                     ))}
                     </>
@@ -69,6 +75,8 @@ return (
         </table>
         </div>
         </>
+        )}
+    </>
 );
 };
 

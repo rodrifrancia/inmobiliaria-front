@@ -1,15 +1,15 @@
 import React, { useEffect,useState } from 'react'
 import { fetchObtenerUsuarios,fetchEditarUsuario } from '../../../data/usuarios'
-import { fetchObtenerTipoUsuario } from '../../../data/tipoUsuario'
+import { Zoom,Fade } from 'react-awesome-reveal'
+import "animate.css"
 
-const EditarUsuario = ({usuario,setEditUsua,tiposUsu,setTodosUsuarios}) => {
+
+const EditarUsuario = ({usuario,editUsua,setEditUsua,tiposUsu,setTodosUsuarios}) => {
     const[nombreEd,setNombreEd]=useState(usuario.nombre)
     const[apellidoEd,setApellidoEd]=useState(usuario.apellido)
     const[telefonoEd,setTelefonoEd]=useState(usuario.telefono)
     const[tipo,setTipo]=useState(usuario.tipo)
     const[idUsuario,setId]=useState(usuario.id)
-  
-
 
     const handleEditar= async(e)=>{
         e.preventDefault()
@@ -17,13 +17,18 @@ const EditarUsuario = ({usuario,setEditUsua,tiposUsu,setTodosUsuarios}) => {
         if(respu.status===200){
             const actualizado= await fetchObtenerUsuarios()
             setTodosUsuarios(actualizado)
-            setEditUsua(false)
+                setEditUsua(false)
         }
+    }
+    const handleCancelar=()=>{
+            setEditUsua(false)
     }
 
 return (
-    <div className='w-2/4 bg-white mx-auto justify-center rounded-md shadow-md p-5 mt-10'>
-        <form action="" className='flex flex-col'>
+    <div className={'animate__animated animate__fadeIn w-2/4 bg-white mx-auto justify-center rounded-md shadow-md p-5 mt-10 max-md:h-80 transition-opacity'}>
+        <form action="" className='flex flex-col'
+        onSubmit={handleEditar}
+        >
             <h3 className='text-center font-bold text-xl'>Editar usuario</h3>
         <label className="uppercase font-bold" htmlFor="nombre">
             Nombre:
@@ -72,12 +77,11 @@ return (
         <button className='bg-emerald-600 p-2 rounded-md font-bold text-white uppercase hover:bg-emerald-700 transition-colors' 
         type='submit'
         value={idUsuario}
-        onClick={handleEditar}
         >
             guardar cambios
         </button>
         <button className='bg-red-600 p-2 rounded-md font-bold text-white uppercase hover:bg-red-700 transition-colors'
-        onClick={()=>setEditUsua(false)}
+        onClick={handleCancelar}
         >
             Cancelar
         </button>

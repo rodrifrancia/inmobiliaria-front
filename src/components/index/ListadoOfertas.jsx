@@ -3,8 +3,6 @@ import Oferta from "./Oferta";
 
 const ListadoOfertas = ({propiedades}) => {
 
-
-    console.log(propiedades)
 return (
     <div className="mb-8 bt-8">
         

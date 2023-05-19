@@ -2,12 +2,12 @@ import React from "react";
 import TelefonoImg from "../../img/telefono.png";
 import CorreoImg from "../../img/correo.png";
 
-const Footer = () => {
+const Footer = ({tablaUsu}) => {
   const fechaActual = new Date();
   const anio = fechaActual.getFullYear();
 
   return (
-    <div className="bottom-0 w-full relative">
+    <div className={tablaUsu?"bottom-0 w-full absolute mt-10":"bottom-0 w-full relative mt-10"}>
       <div className="w-full bg-gray-900 flex justify-evenly text-white items-center">
         <div>
           <p className="text-white p-5">

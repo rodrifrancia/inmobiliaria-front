@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React,{ useEffect, useState } from 'react'
 import Header from '../components/reutilizables/Header'
 import Footer from '../components/reutilizables/Footer'
 import Formulario from '../components/dashboard/administrador/Formulario'
@@ -68,26 +68,31 @@ const Dashboard = () => {
           />
           </div>
         ):(
-          <div className='min-h-screen'>
-            {editUsua&&
+          <div className="h-3/4">
+            {editUsua?(
             <EditarUsuario
             usuario={usuario}
             setEditUsua={setEditUsua}
             tiposUsu={tiposUsu}
             setTodosUsuarios={setTodosUsuarios}
             />
-            }
-          <TablaUsuarios
-          todosUsuarios={todosUsuarios}
-          setTodosUsuarios={setTodosUsuarios}
-          setEditUsua={setEditUsua}
-          setUsuario={setUsuario}
-          setTiposUsu={setTiposUsu}
-          />
+
+            ):(
+              <TablaUsuarios
+              todosUsuarios={todosUsuarios}
+              setTodosUsuarios={setTodosUsuarios}
+              editUsua={editUsua}
+              setEditUsua={setEditUsua}
+              setUsuario={setUsuario}
+              setTiposUsu={setTiposUsu}
+              />
+            )}
           </div>
         )}
         
-        <Footer/>
+        {/* <Footer
+        tablaUsu={tablaUsu}
+        /> */}
     </div>
   )
 }
