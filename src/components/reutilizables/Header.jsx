@@ -13,7 +13,7 @@ return (
         <img className="w-6 h-6 p-1" src={CorreoImg} alt="Icono Correo" />
         <p className="text-sm">rodrigofrancia98@gmail.com</p>
     </div>
-    <div className="flex justify-around bg-white py-1">
+    <div className="flex justify-around bg-white py-1 shadow-md">
         <h3 className="text-3xl cursor-pointer p-4  font-bold w-52 hover:-translate-y-px">
         <Link to="/">
             Team{" "}

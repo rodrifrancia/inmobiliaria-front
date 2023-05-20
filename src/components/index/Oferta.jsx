@@ -1,24 +1,33 @@
 import React from 'react'
 
 
-const Oferta = ({propie,setPropie,setVistaInmu}) => {
+const Oferta = ({propie,setAbrirInmu,setVistaInmu}) => {
 
-    const{titulo,descripcion,precio,metrosTot,metrosCub,foto}= propie
+    const{titulo,descripcion,precio,direccion,metrosTot,metrosCub,foto}= propie
 
     const handleVer=()=>{
       setVistaInmu(true)
+      setAbrirInmu(propie)
     }
 
   return (
-    <div className="w-auto bg-white shadow-md hover:translate-y-px hover:opacity-80 hover:cursor-pointer transition-opacity rounded-md"> 
+    <div className="w-auto bg-white shadow-md hover:translate-y-px rounded-sm"
+    > 
         <div className='font-bold'>
-            <img className='w-full h-56' src={foto} alt="Imagen Casa" />
-            <div className='p-2'>
-            <p>Titulo: <span>{titulo}</span></p>
-            <p>Precio: <span>{precio}</span></p>
-            <button
+            <img className='w-80 h-56 p-2 hover:opacity-80 hover:cursor-pointer' src={foto} alt="Imagen Casa"
             onClick={handleVer}
-            >VER</button>
+            />
+            <div className='p-2 grid grid-rows-2'>
+            <div>
+            <p className='col-span-2 text-center'><span>{titulo}</span></p>
+            <p className='col-span-2 font-normal text-gray-500'>{direccion}</p>
+            </div>
+            <div className='flex justify-between pt-2'>
+            <p>USD <span>{precio}</span></p>
+            <button className='bg-sky-600 p-2 text-white rounded-sm hover:opacity-80 transition-opacity cursor-pointer'
+            onClick={handleVer}
+            >Ver Detalles</button>
+            </div>
             </div>
         </div>
     </div>

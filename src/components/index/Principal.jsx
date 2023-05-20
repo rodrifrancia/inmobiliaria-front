@@ -1,6 +1,7 @@
 import React from 'react'
 import Img from "../../img/foto-inmo.jpg";
 import { Fade, Zoom } from 'react-awesome-reveal';
+import "animate.css"
 
 const Principal = (principal, setPrincipal) => {
 return (

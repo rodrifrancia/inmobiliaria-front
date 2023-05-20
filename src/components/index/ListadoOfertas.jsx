@@ -1,7 +1,7 @@
 import React from "react";
 import Oferta from "./Oferta";
 
-const ListadoOfertas = ({propiedades,setVistaInmu}) => {
+const ListadoOfertas = ({propiedades,setVistaInmu,setAbrirInmu}) => {
 
 return (
     <div className="mb-8 bt-8">
@@ -11,6 +11,7 @@ return (
         {propiedades.map((propi) => (
             <Oferta propie={propi}
             setVistaInmu={setVistaInmu}
+            setAbrirInmu={setAbrirInmu}
             />
         ))}
         </div>

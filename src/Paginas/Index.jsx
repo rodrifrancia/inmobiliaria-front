@@ -12,6 +12,7 @@ function App() {
   const [tabla, setTabla] = useState(false);
   //vista inmueble
   const[vistaInmu,setVistaInmu]=useState(false)
+  const[abrirInmu,setAbrirInmu]=useState({})
 
 
   const propiedades = [
@@ -19,6 +20,7 @@ function App() {
       titulo: "Casa en Venta",
       descripcion: "Hermosa casa en carlos Paz etc...",
       precio: "500000",
+      direccion:"Tucuman 241,Córdoba,Argentina",
       metrosTot: 400,
       metrosCub: 300,
       foto: imgCasa,
@@ -27,6 +29,7 @@ function App() {
       titulo: "Terreno en Venta",
       descripcion: "Hermoso terreno en carlos Paz etc...",
       precio: "500000",
+      direccion:"Tucuman 241,Córdoba,Argentina",
       metrosTot: 400,
       metrosCub: 300,
       foto: imgCasa,
@@ -35,6 +38,7 @@ function App() {
       titulo: "Departamento en Venta",
       descripcion: "Hermoso departamento en carlos Paz etc...",
       precio: "500000",
+      direccion:"Tucuman 241,Córdoba,Argentina",
       metrosTot: 400,
       metrosCub: 300,
       foto: imgCasa,
@@ -43,6 +47,7 @@ function App() {
       titulo: "Casa en Venta",
       descripcion: "Hermosa casa en carlos Paz etc...",
       precio: "500000",
+      direccion:"Tucuman 241,Córdoba,Argentina",
       metrosTot: 400,
       metrosCub: 300,
       foto: imgCasa,
@@ -51,6 +56,7 @@ function App() {
       titulo: "Casa en Venta",
       descripcion: "Hermosa casa en carlos Paz etc...",
       precio: "500000",
+      direccion:"Tucuman 241,Córdoba,Argentina",
       metrosTot: 400,
       metrosCub: 300,
       foto: imgCasa,
@@ -59,6 +65,7 @@ function App() {
       titulo: "Casa en Venta",
       descripcion: "Hermosa casa en carlos Paz etc...",
       precio: "500000",
+      direccion:"Tucuman 241,Córdoba,Argentina",
       metrosTot: 400,
       metrosCub: 300,
       foto: imgCasa,
@@ -71,7 +78,8 @@ function App() {
       {vistaInmu?(
         <Inmueble
         setPrincipal={setPrincipal}
-        setVistaInmu={set}
+        setVistaInmu={setVistaInmu}
+        abrirInmu={abrirInmu}
         />
       ):(
         <>
@@ -80,6 +88,7 @@ function App() {
           <ListadoOfertas
           propiedades={propiedades}
           setVistaInmu={setVistaInmu}
+          setAbrirInmu={setAbrirInmu}
           />
         </div>
         </>

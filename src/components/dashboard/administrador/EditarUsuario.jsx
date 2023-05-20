@@ -34,7 +34,7 @@ return (
             Nombre:
         </label>
         <input
-            className="border-2 p-1 rounded-md mb-2"
+            className="border-1 p-1 rounded-md mb-2"
             type="text"
             id="nombre"
             value={nombreEd}
@@ -44,7 +44,7 @@ return (
             Apellido:
         </label>
         <input
-            className="border-2 p-1 rounded-md mb-2"
+            className="border-1 p-1 rounded-md mb-2"
             type="text"
             id="apellido"
             value={apellidoEd}

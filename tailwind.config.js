@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html","./src/**/*.jsx"],
+  content: ["./index.html","./src/**/*.jsx","./node_modules/flowbite/**/*.js"],
   theme: {
     extend: {
       fontFamily:{
@@ -26,7 +26,6 @@ export default {
     // => @media (min-width: 1536px) { ... }
 
     },
-  },
-  plugins: [],
+  }
 }
 

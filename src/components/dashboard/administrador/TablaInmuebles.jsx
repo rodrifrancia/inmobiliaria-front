@@ -10,7 +10,7 @@ const TablaInmuebles = ({todosInmuebles,settodosInmuebles,setInmueble}) => {
         tabla de inmuebles
       </h3>
       <input
-        className="w-full p-2 rounded-md border-2 mb-2"
+        className="w-full p-2 rounded-md border-1 mb-2"
         type="text"
         placeholder="Buscar inmueble..."
         value={buscar}
