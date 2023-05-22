@@ -36,7 +36,7 @@ return (
             <h3 className="flex justify-center mx-auto w-3/4 mt-20 items-center font-bold text-xl text-center p-4 bg-white">TABLA DE USUARIOS</h3>
 
         <div className="animate__animated animate__fadeIn justify-center w-3/4 m-auto bg-white mb-10 rounded-md shadow-md max-h-96 overflow-auto">
-            <input className="p-2 w-full border-1" type="text" placeholder="Buscar usuario..."
+            <input className="p-2 w-full border-2" type="text" placeholder="Buscar usuario..."
             value={buscar}
             onChange={(e)=>setBuscar(e.target.value)}
             />

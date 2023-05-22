@@ -71,7 +71,7 @@ return (
             Nombre:
         </label>
         <input
-            className="border-1 p-1.5 rounded-sm mb-2 w-full"
+            className="border-2 p-1.5 rounded-sm mb-2 w-full"
             type="text"
             id="nombre"
             value={nombre}
@@ -81,7 +81,7 @@ return (
             Apellido:
         </label>
         <input
-            className="border-1 p-1.5 rounded-sm mb-2 w-full"
+            className="border-2 p-1.5 rounded-sm mb-2 w-full"
             type="text"
             id="apellido"
             value={apellido}
@@ -91,7 +91,7 @@ return (
             Correo electronico:
         </label>
         <input
-            className="border-1  p-1.5 rounded-sm mb-2 w-full"
+            className="border-2  p-1.5 rounded-sm mb-2 w-full"
             type="email"
             id="mail"
             value={email}
@@ -111,7 +111,7 @@ return (
             Contraseña:
         </label>
         <input
-            className="border-1 p-1.5 rounded-sm mb-2 w-full"
+            className="border-2 p-1.5 rounded-sm mb-2 w-full"
             type="password"
             id='contrasenia'
             value={contrasenia}
@@ -121,7 +121,7 @@ return (
             Repetir contraseña:
         </label>
         <input
-            className="border-1 p-1.5 rounded-sm mb-2 w-full"
+            className="border-2 p-1.5 rounded-sm mb-2 w-full"
             type="password"
             id='contrasenia2'
             value={repContra}

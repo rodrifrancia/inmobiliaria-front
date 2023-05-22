@@ -12,7 +12,7 @@ return (
             Ingrese su Usuario:
         </label>
         <input
-            className="block border-1 m-6 p-3 rounded-sm"
+            className="block border-2 m-6 p-3 rounded-sm"
             type="text"
             id="usuario"
             placeholder="ejemplo@ejemplo.com"
@@ -21,7 +21,7 @@ return (
             Ingrese su Contraseña:
         </label>
         <input
-            className="block border-1 m-6 p-3 rounded-sm"
+            className="block border-2 m-6 p-3 rounded-sm"
             type="password"
         />
         <Link

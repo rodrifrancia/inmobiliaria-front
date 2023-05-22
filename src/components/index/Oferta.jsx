@@ -3,7 +3,9 @@ import React from 'react'
 
 const Oferta = ({propie,setAbrirInmu,setVistaInmu}) => {
 
-    const{titulo,descripcion,precio,direccion,metrosTot,metrosCub,foto}= propie
+    const{titulo,descripcion,precio,direccion,totales,cubiertos,foto}= propie
+
+    console.log(foto)
 
     const handleVer=()=>{
       setVistaInmu(true)
@@ -14,7 +16,7 @@ const Oferta = ({propie,setAbrirInmu,setVistaInmu}) => {
     <div className="w-auto bg-white shadow-md hover:translate-y-px rounded-sm"
     > 
         <div className='font-bold'>
-            <img className='w-80 h-56 p-2 hover:opacity-80 hover:cursor-pointer' src={foto} alt="Imagen Casa"
+            <img className='w-80 h-56 p-2 hover:opacity-80 hover:cursor-pointer' src={foto[0]} alt="Imagen Casa"
             onClick={handleVer}
             />
             <div className='p-2 grid grid-rows-2'>

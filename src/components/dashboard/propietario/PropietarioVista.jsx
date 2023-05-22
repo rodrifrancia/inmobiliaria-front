@@ -1,6 +1,4 @@
 import React from 'react';
-import Footer from '../reutilizables/Footer';
-import Header from '../reutilizables/Header';
 import './PropietarioVista.css';
 
 function PropietarioVista() {
@@ -12,8 +10,6 @@ function PropietarioVista() {
   };
 
   return (
-    <div>
-      <Header />
       <div className="property-info">
       <h1 className="title">Información de su Propiedad</h1>
         <div className="property-details">
@@ -23,8 +19,6 @@ function PropietarioVista() {
           <p><strong>Fecha de vencimiento del contrato:</strong> {propiedad.fechaVencimientoContrato}</p>
         </div>
       </div>
-      <Footer />
-    </div>
   );
 }
 

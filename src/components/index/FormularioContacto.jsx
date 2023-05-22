@@ -37,7 +37,7 @@ const FormularioContacto = () => {
             Nombre:
         </label>
         <input
-            className="border-1 p-1.5 rounded-sm mb-2 w-full"
+            className="border-2 p-1.5 rounded-sm mb-2 w-full"
             type="text"
             id="nombre"
             value={nombre}
@@ -47,7 +47,7 @@ const FormularioContacto = () => {
             Apellido:
         </label>
         <input
-            className="border-1 p-1.5 rounded-sm mb-2 w-full"
+            className="border-2 p-1.5 rounded-sm mb-2 w-full"
             type="text"
             id="apellido"
             value={apellido}
@@ -57,7 +57,7 @@ const FormularioContacto = () => {
             Correo electronico:
         </label>
         <input
-            className="border-1  p-1.5 rounded-sm mb-2 w-full"
+            className="border-2  p-1.5 rounded-sm mb-2 w-full"
             type="email"
             id="mail"
             value={email}
@@ -74,7 +74,7 @@ const FormularioContacto = () => {
             onChange={(e) => setTelefono(e.target.value)}
         />
         <label htmlFor="mensaje" className="uppercase font-bold col-span-2" >Mensaje:</label>
-        <textarea name="mensaje" id="mensaje" cols="30" rows="10" className="border-1  p-1.5 rounded-sm mb-2 w-full col-span-2"
+        <textarea name="mensaje" id="mensaje" cols="30" rows="10" className="border-2  p-1.5 rounded-sm mb-2 w-full col-span-2"
         value={mensaje}
         onChange={e=>setMensaje(e.target.value)}
         placeholder='¡Hola Team Five Inmuebles! Me interesa esta propiedad...'

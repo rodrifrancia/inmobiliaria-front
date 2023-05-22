@@ -100,7 +100,7 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
         <input
           type="text"
           id="titulo"
-          className="rounded-sm border-1"
+          className="rounded-sm border-2"
           value={titulo}
           onChange={(e) => setTitulo(e.target.value)}
         />
@@ -113,7 +113,7 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
           id="descripcion"
           cols="30"
           rows="10"
-          className="rounded-sm border-1"
+          className="rounded-sm border-2"
           value={descripcion}
           onChange={(e) => setDescripcion(e.target.value)}
         ></textarea>
@@ -124,7 +124,7 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
         <input
           type="number"
           id="precio"
-          className="rounded-sm border-1"
+          className="rounded-sm border-2"
           value={precio}
           onChange={(e) => setPrecio(e.target.value)}
         />
@@ -135,7 +135,7 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
         <input
           type="text"
           id="direccion"
-          className="rounded-sm border-1"
+          className="rounded-sm border-2"
           value={direccion}
           onChange={(e) => setDireccion(e.target.value)}
         />
@@ -146,7 +146,7 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
         <input
           type="number"
           id="ambientes"
-          className="rounded-sm border-1"
+          className="rounded-sm border-2"
           value={ambientes}
           onChange={(e) => setAmbientes(e.target.value)}
         />
@@ -157,7 +157,7 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
         <input
           type="number"
           id="supTotal"
-          className="rounded-sm border-1"
+          className="rounded-sm border-2"
           value={totales}
           onChange={(e) => setTotales(e.target.value)}
         />
@@ -168,7 +168,7 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
         <input
           type="number"
           id="supCubierta"
-          className="rounded-sm border-1"
+          className="rounded-sm border-2"
           value={cubiertos}
           onChange={(e) => setCubiertos(e.target.value)}
         />
