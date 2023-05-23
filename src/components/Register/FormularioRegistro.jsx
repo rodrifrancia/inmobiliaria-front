@@ -34,6 +34,12 @@ const FormularioRegistro = () => {
         setError(true)
         return;
         }
+        const specialChars = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+        if(specialChars.test(contrasenia)){
+        setMensaje("La contraseña no permite carácteres especiales")
+        setError(true)
+        return;
+    }
         //si esta todo ok creamos el objeto
         const objUsuario={
             nombre,
@@ -92,6 +98,7 @@ return (
         </label>
         <input
             className="border-2  p-1.5 rounded-sm mb-2 w-full"
+            placeholder='ejemplo@ejemplo.com'
             type="email"
             id="mail"
             value={email}
@@ -102,7 +109,7 @@ return (
         </label>
         <input
             className="border-2  p-1.5 rounded-sm mb-2 w-full"
-            type="telefono"
+            type="number"
             id="telefono"
             value={telefono}
             onChange={(e) => setTelefono(e.target.value)}

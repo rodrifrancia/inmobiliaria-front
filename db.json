@@ -47,40 +47,22 @@
   ],
   "fetchUsuarios": [
     {
-      "nombre": "Jorge",
-      "apellido": "asd",
-      "email": "adf@asd.com",
-      "telefono": "453",
+      "nombre": "a",
+      "apellido": "a",
+      "email": "asd@asd.com",
+      "telefono": "1",
       "tipo": "administrador",
-      "idUsuario": 2,
-      "id": 2
+      "constrasenia": "a",
+      "id": 1
     },
     {
-      "nombre": "Pedro",
-      "apellido": "asd",
-      "email": "adf@asd.com",
-      "telefono": "453",
-      "tipo": "administrador",
-      "idUsuario": 3,
-      "id": 3
-    },
-    {
-      "nombre": "Nacho",
-      "apellido": "asd",
-      "email": "adf@asd.com",
-      "telefono": "453",
-      "tipo": "propietario",
-      "idUsuario": 4,
-      "id": 4
-    },
-    {
-      "nombre": "q",
-      "apellido": "q",
-      "email": "q@q.com",
+      "nombre": "b",
+      "apellido": "b",
+      "email": "d@d.com",
       "telefono": "3",
-      "tipo": "",
-      "contrasenia": "1",
-      "id": 5
+      "tipo": "propietario",
+      "constrasenia": "b",
+      "id": 2
     }
   ],
   "fetchTipoUsuario": [
@@ -95,6 +77,12 @@
     {
       "nombreTipo": "inquilino",
       "id": 3
+    }
+  ],
+  "fetchLogin": [
+    {
+      "email": "",
+      "contrasenia": ""
     }
   ]
 }

@@ -26,6 +26,7 @@ function App() {
           imageRef.current.style.opacity = 1;
           imageRef.current.style.transition = 'opacity 1s ease-in-out';         
         }else{
+          //sacar los estilos
           imageRef.current.style.opacity = 0;
         }
       });

@@ -5,8 +5,6 @@ const Oferta = ({propie,setAbrirInmu,setVistaInmu}) => {
 
     const{titulo,descripcion,precio,direccion,totales,cubiertos,foto}= propie
 
-    console.log(foto)
-
     const handleVer=()=>{
       setVistaInmu(true)
       setAbrirInmu(propie)

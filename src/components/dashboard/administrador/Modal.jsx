@@ -7,7 +7,7 @@ import {
   fetchEliminarUsuario,
   fetchObtenerUsuarios,
 } from "../../../data/usuarios";
-import { Zoom,Flip,JackInTheBox,Hinge,Fade,Bounce } from "react-awesome-reveal";
+import { Bounce } from "react-awesome-reveal";
 import AlertaImg from "../../../img/advertencia.png"
 
 const Modal = ({
@@ -16,7 +16,6 @@ const Modal = ({
   queEliminar,
   settodosInmuebles,
   setTodosUsuarios,
-  setHideTable,
   eliminarUsu,
   eliminarPropie
   }) => {
@@ -56,7 +55,7 @@ const Modal = ({
   };
 
   return (
-    <div className="fixed flex items-center justify-center inset-0 w-full h-full bg-black bg-opacity-95">
+    <div className="fixed flex items-center justify-center inset-0 w-full h-full bg-black bg-opacity-90">
       <Bounce>
         <div className="bg-white mx-auto p-3 rounded-md">
           <div className="flex justify-center">
