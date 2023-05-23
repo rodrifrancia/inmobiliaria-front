@@ -47,148 +47,22 @@
   ],
   "fetchUsuarios": [
     {
-      "nombre": "Juancito",
-      "apellido": "perez",
-      "email": "123@123.com",
-      "telefono": "213213",
+      "nombre": "a",
+      "apellido": "a",
+      "email": "asd@asd.com",
+      "telefono": "1",
       "tipo": "administrador",
-      "idUsuario": 1,
+      "constrasenia": "a",
       "id": 1
     },
     {
-      "nombre": "Rodrigo",
-      "apellido": "Francia",
-      "email": "123@123.com",
-      "telefono": "351500012",
-      "tipo": "administrador",
-      "idUsuario": 2,
-      "id": 2
-    },
-    {
-      "nombre": "Carlitox",
-      "apellido": "Bala",
-      "email": "123@123.com",
-      "telefono": "3517363749",
-      "tipo": "inquilino",
-      "idUsuario": 3,
-      "id": 3
-    },
-    {
-      "nombre": "Tito",
-      "apellido": "El bambino",
-      "email": "123@123.com",
-      "telefono": "351500012",
-      "tipo": "inquilino",
-      "idUsuario": 4,
-      "id": 4
-    },
-    {
-      "nombre": "Juancito",
-      "apellido": "perez",
-      "email": "123@123.com",
-      "telefono": "213213",
-      "tipo": "inquilino",
-      "idUsuario": 1,
-      "id": 5
-    },
-    {
-      "nombre": "Rodrigo",
-      "apellido": "Francia",
-      "email": "123@123.com",
-      "telefono": "351500012",
-      "tipo": "administrador",
-      "idUsuario": 2,
-      "id": 6
-    },
-    {
-      "nombre": "Carlitox",
-      "apellido": "Bala",
-      "email": "123@123.com",
-      "telefono": "3517363749",
-      "tipo": "administrador",
-      "idUsuario": 3,
-      "id": 7
-    },
-    {
-      "nombre": "Tito",
-      "apellido": "El bambino",
-      "email": "123@123.com",
-      "telefono": "351500012",
-      "tipo": "inquilino",
-      "idUsuario": 8,
-      "id": 8
-    },
-    {
-      "nombre": "Juancito",
-      "apellido": "perez",
-      "email": "123@123.com",
-      "telefono": "213213",
-      "tipo": "inquilino",
-      "idUsuario": 1,
-      "id": 9
-    },
-    {
-      "nombre": "Rodrigo",
-      "apellido": "Francia",
-      "email": "123@123.com",
-      "telefono": "351500012",
-      "tipo": "administrador",
-      "idUsuario": 2,
-      "id": 10
-    },
-    {
-      "nombre": "Carlitox",
-      "apellido": "Bala",
-      "email": "123@123.com",
-      "telefono": "3517363749",
-      "tipo": "administrador",
-      "idUsuario": 3,
-      "id": 11
-    },
-    {
-      "nombre": "Tito",
-      "apellido": "El bambino",
-      "email": "123@123.com",
-      "telefono": "351500012",
-      "tipo": "inquilino",
-      "idUsuario": 4,
-      "id": 12
-    },
-    {
-      "nombre": "Juancito",
-      "apellido": "perez",
-      "email": "123@123.com",
-      "telefono": "213213",
-      "tipo": "inquilino",
-      "idUsuario": 1,
-      "id": 13
-    },
-    {
-      "nombre": "Rodrigo",
-      "apellido": "Francia",
-      "email": "123@123.com",
-      "telefono": "351500012",
+      "nombre": "b",
+      "apellido": "b",
+      "email": "d@d.com",
+      "telefono": "3",
       "tipo": "propietario",
-      "idUsuario": 14,
-      "id": 14
-    },
-    {
-      "nombre": "Carlitox",
-      "apellido": "Bala",
-      "email": "123@123.com",
-      "telefono": "3517363749",
-      "tipo": "administrador",
-      "idUsuario": 3,
-      "id": 15
-    },
-    {
-      "nombre": "Tito",
-      "apellido": "El bambino",
-      "email": "123@123.com",
-      "telefono": "351500012",
-      "tipo": "inquilino",
-      "idUsuario": 4,
-      "id": 16
+      "constrasenia": "b",
+      "id": 2
     }
   ],
   "fetchTipoUsuario": [
@@ -203,6 +77,12 @@
     {
       "nombreTipo": "inquilino",
       "id": 3
+    }
+  ],
+  "fetchLogin": [
+    {
+      "email": "",
+      "contrasenia": ""
     }
   ]
 }

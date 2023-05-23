@@ -9,11 +9,10 @@ const EditarUsuario = ({usuario,editUsua,setEditUsua,tiposUsu,setTodosUsuarios})
     const[apellidoEd,setApellidoEd]=useState(usuario.apellido)
     const[telefonoEd,setTelefonoEd]=useState(usuario.telefono)
     const[tipo,setTipo]=useState(usuario.tipo)
-    const[idUsuario,setId]=useState(usuario.id)
 
     const handleEditar= async(e)=>{
         e.preventDefault()
-        const respu= await fetchEditarUsuario(nombreEd, apellidoEd,usuario.email, telefonoEd, tipo, idUsuario);
+        const respu= await fetchEditarUsuario(nombreEd,apellidoEd,usuario.email, telefonoEd, tipo,usuario.contrasenia,usuario.id);
         if(respu.status===200){
             const actualizado= await fetchObtenerUsuarios()
             setTodosUsuarios(actualizado)
@@ -76,7 +75,6 @@ return (
         <div className='flex justify-around'>
         <button className='bg-emerald-600 p-2 rounded-md font-bold text-white uppercase hover:bg-emerald-700 transition-colors' 
         type='submit'
-        value={idUsuario}
         >
             guardar cambios
         </button>

@@ -42,9 +42,9 @@ export async function fetchEliminarUsuario(id){
     }
 }
 
-export async function fetchEditarUsuario(nombre,apellido,email,telefono,tipo,idUsuario){
+export async function fetchEditarUsuario(nombre,apellido,email,telefono,tipo,constrasenia,id){
     try {
-        const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/fetchUsuarios/${idUsuario}`,{
+        const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/fetchUsuarios/${id}`,{
             method: 'PUT',
             body: JSON.stringify({
                 nombre,
@@ -52,7 +52,8 @@ export async function fetchEditarUsuario(nombre,apellido,email,telefono,tipo,idU
                 email,
                 telefono,
                 tipo,
-                idUsuario
+                constrasenia,
+                id
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -61,5 +62,27 @@ export async function fetchEditarUsuario(nombre,apellido,email,telefono,tipo,idU
             return respuesta
     } catch (error) {
         console.log(error)
+    }
+}
+export const fetchLogin = async (usuario,clave) =>{
+    console.log("login")
+    const response = await fetch(`https://www.api.utopiaacademia.com.ar/login`,  {
+    method: 'POST',
+    body: JSON.stringify({
+        usuario: usuario,
+        clave: clave
+    }),
+    headers: {
+        'Content-Type': 'application/json'
+    }
+    });
+    const data = await response.json()
+    console.log(data)
+    if (response.status == 200) {
+    localStorage.setItem('Token',JSON.stringify(data[0].token))
+    localStorage.setItem( 'Type',JSON.stringify(data[0].tipo_usuario))
+    window.location.href = 'dashboard'
+    } else {
+    alert("Usuario o contraseña incorrectos")
     }
 }
