@@ -6,7 +6,7 @@ import TablaInmuebles from '../components/dashboard/administrador/TablaInmuebles
 import { fetchObtenerInmuebles } from '../data/inmuebles'
 import TablaUsuarios from '../components/dashboard/administrador/TablaUsuarios'
 import EditarUsuario from '../components/dashboard/administrador/EditarUsuario'
-//import AuthLogin from '../components/reutilizables/AuthLogin'
+import AuthLoginAcc from '../components/reutilizables/AuthLoginAcc'
 
 
 const Dashboard = () => {
@@ -17,8 +17,6 @@ const Dashboard = () => {
   const [inmueble, setInmueble] = useState({})
   //mensaje error
   const[error,setError] = useState(false)
-  //id para eliminar
-  const[idEliminar,setIdEliminar] = useState(0)
    //es administrador?
   const[isAdmin,setIsAdmin] = useState(true)
   const[formul,setFormul] = useState(true)
@@ -45,7 +43,7 @@ const Dashboard = () => {
     
   return (
     <div className='flex flex-col h-full'>
-    {/* <AuthLogin/> */}
+        <AuthLoginAcc/>
 
         <Header
         isAdmin={isAdmin}
@@ -91,10 +89,6 @@ const Dashboard = () => {
             )}
           </div>
         )}
-        
-        {/* <Footer
-        tablaUsu={tablaUsu}
-        /> */}
     </div>
   )
 }

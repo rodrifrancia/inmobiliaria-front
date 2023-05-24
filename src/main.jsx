@@ -1,4 +1,4 @@
-import React, { StrictMode } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Index from './Paginas/Index.jsx'
 import Login from './Paginas/Login.jsx'

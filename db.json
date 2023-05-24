@@ -1,68 +1,58 @@
 {
   "fetchInmuebles": [
     {
-      "titulo": "casa ",
-      "descripcion": "hermosa casa en Cosquin\n",
-      "precio": "222",
-      "direccion": "222",
-      "ambientes": "22",
-      "totales": "22",
-      "cubiertos": "222",
-      "estrellas": "4",
-      "id": 1
+      "titulo": "Casa en Venta",
+      "descripcion": "Hermosa casa en carlos Paz etc...",
+      "precio": "500000",
+      "direccion":"Tucuman 241,Córdoba,Argentina",
+      "totales": 400,
+      "cubiertos": 300,
+      "id":1
     },
     {
-      "titulo": "casa 2",
-      "descripcion": "casa de juan carlos",
-      "precio": "222",
-      "direccion": "222",
-      "ambientes": "22",
-      "totales": "22",
-      "cubiertos": "222",
-      "estrellas": "4",
-      "id": 2
+      "titulo": "Terreno en Venta",
+      "descripcion": "Hermoso terreno en carlos Paz etc...",
+      "precio": "500000",
+      "direccion":"Tucuman 241,Córdoba,Argentina",
+      "totales": 400,
+      "cubiertos": 300,
+      "id":2
     },
     {
-      "titulo": "jeje",
-      "descripcion": "asdas",
-      "precio": "222",
-      "direccion": "222",
-      "ambientes": "22",
-      "totales": "22",
-      "cubiertos": "222",
-      "estrellas": "4",
-      "id": 3
+      "titulo": "Departamento en Venta",
+      "descripcion": "Hermoso departamento en carlos Paz etc...",
+      "precio": "500000",
+      "direccion":"Tucuman 241,Córdoba,Argentina",
+      "totales": 400,
+      "cubiertos": 300,
+      "id":3
     },
     {
-      "titulo": "asd",
-      "descripcion": "asd",
-      "precio": "1234",
-      "direccion": "asd",
-      "ambientes": "2",
-      "totales": "123",
-      "cubiertos": "123",
-      "estrellas": "3",
-      "id": 4
-    }
-  ],
-  "fetchUsuarios": [
-    {
-      "nombre": "a",
-      "apellido": "a",
-      "email": "asd@asd.com",
-      "telefono": "1",
-      "tipo": "administrador",
-      "constrasenia": "a",
-      "id": 1
+      "titulo": "Casa en Venta",
+      "descripcion": "Hermosa casa en carlos Paz etc...",
+      "precio": "500000",
+      "direccion":"Tucuman 241,Córdoba,Argentina",
+      "totales": 400,
+      "cubiertos": 300,
+      "id":4
     },
     {
-      "nombre": "b",
-      "apellido": "b",
-      "email": "d@d.com",
-      "telefono": "3",
-      "tipo": "propietario",
-      "constrasenia": "b",
-      "id": 2
+      "titulo": "Casa en Venta",
+      "descripcion": "Hermosa casa en carlos Paz etc...",
+      "precio": "500000",
+      "direccion":"Tucuman 241,Córdoba,Argentina",
+      "totales": 400,
+      "cubiertos": 300,
+      "id":5
+    },
+    {
+      "titulo": "Casa en Venta",
+      "descripcion": "Hermosa casa en carlos Paz etc...",
+      "precio": "500000",
+      "direccion":"Tucuman 241,Córdoba,Argentina",
+      "totales": 400,
+      "cubiertos": 300,
+      "id":6
     }
   ],
   "fetchTipoUsuario": [

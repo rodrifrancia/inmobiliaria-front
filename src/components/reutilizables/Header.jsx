@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import CorreoImg from "../../img/correo.png";
 import TelefonoImg from "../../img/telefono.png";
 import { Outlet, Link } from "react-router-dom";
 
 const Header = ({ isAdmin, setTablaInmu, setTablaUsu, setFormul }) => {
+
+    const [isPropie,setIsPropie] = useState(false)
 return (
     <div className="header">
     <div className="bg-sky-600 h-7 pr-48 pt-1 flex justify-end text-white ">
         <img className="w-6 h-6 p-1" src={TelefonoImg} alt="Icono Teléfono" />
         <p className="text-sm">351 4723512 - (11) 532157</p>
-
         <img className="w-6 h-6 p-1" src={CorreoImg} alt="Icono Correo" />
         <p className="text-sm">rodrigofrancia98@gmail.com</p>
     </div>
@@ -48,10 +49,22 @@ return (
                 </li>
                 <li className="p-2 hover:-translate-y-px uppercase">
                 <Link to="/">Inicio</Link>
+                </li>
+                <li className=" flex hover:-translate-y-px items-center">
+            <Link className="bg-sky-600 text-white p-2 rounded-sm cursor-pointer" to="/login">Cerrar Sesión</Link>
             </li>
             </>
-            ) : (
+            ) :isPropie? (
                 <>
+            <li className="p-2 hover:-translate-y-px uppercase">
+            <Link to="/">Inicio</Link>
+            </li>
+            <li className=" flex hover:-translate-y-px items-center">
+            <Link className="bg-sky-600 text-white p-2 rounded-sm cursor-pointer" to="/login">Cerrar Sesión</Link>
+            </li>
+            </>
+            ):(
+            <>
             <li className="p-2 hover:-translate-y-px uppercase">
             <Link to="/">Inicio</Link>
             </li>

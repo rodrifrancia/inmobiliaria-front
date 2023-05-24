@@ -64,28 +64,25 @@ export async function fetchEditarUsuario(nombre,apellido,email,telefono,tipo,con
         console.log(error)
     }
 }
-//https://www.api.utopiaacademia.com.ar/login
-export const fetchLogin = async (username,password) =>{
-    console.log("login")
-    const response = await fetch('http://127.0.0.1:8080/auth/singin',  {
+
+export const fetchLogin = async (usuario,clave) =>{
+    //const response = await fetch('http://127.0.0.1:8080/auth/singin',  {
+    const response = await fetch('https://www.api.utopiaacademia.com.ar/login',  {
     method: 'POST',
     body: JSON.stringify({
-        username: username,
-        password: password
+        usuario: usuario,
+        clave: clave
     }),
     headers: {
         'Content-Type': 'application/json'
     }
     });
     const data = await response.json()
-    console.log(data)
     if (response.status == 200) {
-    // localStorage.setItem('Token',JSON.stringify(data[0].token))
-    // localStorage.setItem( 'Type',JSON.stringify(data[0].tipo_usuario))
     localStorage.setItem('Token',JSON.stringify(data[0].token))
     localStorage.setItem( 'Type',JSON.stringify(data[0].tipo_usuario))
-    window.location.href = 'dashboard'
+    return data
     } else {
-    alert("Usuario o contraseña incorrectos")
+    throw new Error("usuario o contraseña incorrectos")
     }
 }

@@ -43,7 +43,6 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
           setError(true)
           return;
         }
-        
         //si esta todo bien creamos el objeto inmueble
           const objInmueble ={
             titulo,

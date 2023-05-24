@@ -1,10 +1,14 @@
 import React from "react";
 import FormularioContacto from "./FormularioContacto";
 import Carrusel from "./Carrusel";
+import imgCasa from "../../img/casa1.jpg"
+import obelisco from "../../img/obelisco2.jpg"
+
+const fotos= [imgCasa,obelisco];
 
 
 const Inmueble = ({ setVistaInmu, setPrincipal, abrirInmu }) => {
-  const { titulo, descripcion, precio, totales, cubiertos, foto } = abrirInmu;
+  const { titulo, descripcion, precio, totales, cubiertos } = abrirInmu;
 
   return (
     <div className="grid grid-cols-3 mt-10">
@@ -14,7 +18,7 @@ const Inmueble = ({ setVistaInmu, setPrincipal, abrirInmu }) => {
             USD: <span className="">{precio}</span>
         </p>
         <Carrusel
-        fotos={foto}
+        fotos={fotos}
         />
         
         <div className="w-full mb-2 mt-2 text-lg">

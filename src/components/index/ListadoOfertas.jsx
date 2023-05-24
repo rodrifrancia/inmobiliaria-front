@@ -9,7 +9,9 @@ return (
         <div>
     <div className="grid grid-cols-3 gap-5 mx-auto">
         {propiedades.map((propi) => (
-            <Oferta propie={propi}
+            <Oferta
+            propie={propi}
+            key={propi.id}
             setVistaInmu={setVistaInmu}
             setAbrirInmu={setAbrirInmu}
             />

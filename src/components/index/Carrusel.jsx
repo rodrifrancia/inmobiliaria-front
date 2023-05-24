@@ -3,7 +3,7 @@ import React from 'react';
 
 const Carrusel = ({fotos}) => {
 
-  const [img1,img2,] = fotos
+  const [img1,img2] = fotos
   const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
   const [isTransitioning, setIsTransitioning] = React.useState(false);
 
