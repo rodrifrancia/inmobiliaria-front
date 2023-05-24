@@ -6,7 +6,7 @@ import TablaInmuebles from '../components/dashboard/administrador/TablaInmuebles
 import { fetchObtenerInmuebles } from '../data/inmuebles'
 import TablaUsuarios from '../components/dashboard/administrador/TablaUsuarios'
 import EditarUsuario from '../components/dashboard/administrador/EditarUsuario'
-import AuthLogin from '../components/reutilizables/AuthLogin'
+//import AuthLogin from '../components/reutilizables/AuthLogin'
 
 
 const Dashboard = () => {
@@ -45,7 +45,7 @@ const Dashboard = () => {
     
   return (
     <div className='flex flex-col h-full'>
-    <AuthLogin/>
+    {/* <AuthLogin/> */}
 
         <Header
         isAdmin={isAdmin}

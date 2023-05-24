@@ -64,13 +64,14 @@ export async function fetchEditarUsuario(nombre,apellido,email,telefono,tipo,con
         console.log(error)
     }
 }
-export const fetchLogin = async (usuario,clave) =>{
+//https://www.api.utopiaacademia.com.ar/login
+export const fetchLogin = async (username,password) =>{
     console.log("login")
-    const response = await fetch(`https://www.api.utopiaacademia.com.ar/login`,  {
+    const response = await fetch('http://127.0.0.1:8080/auth/singin',  {
     method: 'POST',
     body: JSON.stringify({
-        usuario: usuario,
-        clave: clave
+        username: username,
+        password: password
     }),
     headers: {
         'Content-Type': 'application/json'
@@ -79,6 +80,8 @@ export const fetchLogin = async (usuario,clave) =>{
     const data = await response.json()
     console.log(data)
     if (response.status == 200) {
+    // localStorage.setItem('Token',JSON.stringify(data[0].token))
+    // localStorage.setItem( 'Type',JSON.stringify(data[0].tipo_usuario))
     localStorage.setItem('Token',JSON.stringify(data[0].token))
     localStorage.setItem( 'Type',JSON.stringify(data[0].tipo_usuario))
     window.location.href = 'dashboard'
