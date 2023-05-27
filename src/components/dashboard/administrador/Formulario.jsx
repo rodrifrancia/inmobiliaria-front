@@ -14,6 +14,7 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
   const [ambientes, setAmbientes] = useState("");
   const [totales, setTotales] = useState("");
   const [cubiertos, setCubiertos] = useState("");
+  const [fotos,setFotos] = useState([]);
   //estrellas
   const [estrellas,setEstrellas]=useState("");
   //mensaje error
@@ -33,7 +34,9 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
     } 
 }, [inmueble])
 
-
+      const subirFotos=(e)=>{
+        setFotos(e)
+      }
 
       const handleSubmit = async(e)=>{
         e.preventDefault()
@@ -43,6 +46,11 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
           setError(true)
           return;
         }
+        const formData = new FormData();
+            for (let index = 0; index < fotos.length; index++) {
+            formData.append('images', fotos[index]);
+            };
+        console.log(formData)    
         //si esta todo bien creamos el objeto inmueble
           const objInmueble ={
             titulo,
@@ -84,7 +92,6 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
           setCubiertos("")
           setEstrellas("")
       }
-
       
 
   return (
@@ -175,6 +182,8 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
         estrellas={estrellas}
         setEstrellas={setEstrellas}
         />
+        <label htmlFor="fotos" className="font-bold uppercase p-1">Fotos</label>
+        <input type="file" accept="image/*" name="fotos" id="fotos" multiple onChange={(e)=>subirFotos(e.target.files)}/>
         {error?<Error>{mensaje}</Error>:null}
         <button
           type="submit"

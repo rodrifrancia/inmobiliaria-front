@@ -3,9 +3,12 @@ import CorreoImg from "../../img/correo.png";
 import TelefonoImg from "../../img/telefono.png";
 import { Outlet, Link } from "react-router-dom";
 
-const Header = ({ isAdmin, setTablaInmu, setTablaUsu, setFormul }) => {
+const Header = ({ setTablaInmu, setTablaUsu, setFormul }) => {
 
-    const [isPropie,setIsPropie] = useState(false)
+    const[isLogin,setIsLogin] = useState(true)
+    const [isPropie,setIsPropie] = useState(true)
+    const[isAdmin,setIsAdmin] = useState(false)
+
 return (
     <div className="header">
     <div className="bg-sky-600 h-7 pr-48 pt-1 flex justify-end text-white ">
@@ -25,7 +28,7 @@ return (
         </h3>
         <nav>
         <ul className="flex space-x-16 pt-4 text-sky-600 font-bold uppercase">
-            {isAdmin ? (
+            {isLogin&& isAdmin ? (
             <>
                 <li>
                 <button
@@ -54,10 +57,13 @@ return (
             <Link className="bg-sky-600 text-white p-2 rounded-sm cursor-pointer" to="/login">Cerrar Sesión</Link>
             </li>
             </>
-            ) :isPropie? (
+            ) :isLogin&& isPropie? (
                 <>
             <li className="p-2 hover:-translate-y-px uppercase">
             <Link to="/">Inicio</Link>
+            </li>
+            <li className="p-2 hover:-translate-y-px uppercase">
+            <Link to="/account">Perfil</Link>
             </li>
             <li className=" flex hover:-translate-y-px items-center">
             <Link className="bg-sky-600 text-white p-2 rounded-sm cursor-pointer" to="/login">Cerrar Sesión</Link>

@@ -17,8 +17,7 @@ const Dashboard = () => {
   const [inmueble, setInmueble] = useState({})
   //mensaje error
   const[error,setError] = useState(false)
-   //es administrador?
-  const[isAdmin,setIsAdmin] = useState(true)
+
   const[formul,setFormul] = useState(true)
   const[tablaInmu,setTablaInmu] = useState(true)
   const[tablaUsu,setTablaUsu] = useState(false)
@@ -46,7 +45,6 @@ const Dashboard = () => {
         <AuthLoginAcc/>
 
         <Header
-        isAdmin={isAdmin}
         setFormul={setFormul}
         setTablaUsu={setTablaUsu}
         setTablaInmu={setTablaInmu}

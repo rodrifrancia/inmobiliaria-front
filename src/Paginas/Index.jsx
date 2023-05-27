@@ -49,7 +49,7 @@ function App() {
         observer.unobserve(imageRef.current);
       }
     };
-  }, []);
+  }, [imageRef.current]);
 
   useEffect(() => {
     async function fetchData() {
@@ -57,7 +57,7 @@ function App() {
         const datos = await fetchObtenerInmuebles()
         setPropiedades(datos)
       } catch (error) {
-        setError("Error fetching data");
+        console.log("Error fetching data");
       }
     }
     fetchData();
@@ -83,7 +83,7 @@ function App() {
           setAbrirInmu={setAbrirInmu}
           />
         </div>
-        <div ref={imageRef} className="relative opacity-0 transition-opacity mt-10 mb-10">
+        <div ref={imageRef} className="relative transition-opacity mt-10 mb-10">
         <img  className="w-full h-80" src={obelisco2} alt="9 de Julio" />
         <div className="bg-black bg-opacity-70 absolute w-full h-full flex top-0 left-0 items-center ">
         <Fade delay={1e3} cascade damping={1e-2} className="text-white text-3xl border-l-2 p-2 ml-36">Elegí tu mejor opción</Fade>
