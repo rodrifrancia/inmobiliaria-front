@@ -4,55 +4,85 @@
       "titulo": "Casa en Venta",
       "descripcion": "Hermosa casa en carlos Paz etc...",
       "precio": "500000",
-      "direccion":"Tucuman 241,Córdoba,Argentina",
+      "direccion": "Tucuman 241,Córdoba,Argentina",
+      "ambientes": "5",
       "totales": 400,
       "cubiertos": 300,
-      "id":1
+      "estrellas": 3,
+      "id": 1
     },
     {
       "titulo": "Terreno en Venta",
       "descripcion": "Hermoso terreno en carlos Paz etc...",
       "precio": "500000",
-      "direccion":"Tucuman 241,Córdoba,Argentina",
+      "direccion": "Tucuman 241,Córdoba,Argentina",
+      "ambientes": 2,
       "totales": 400,
       "cubiertos": 300,
-      "id":2
+      "estrellas": 5,
+      "id": 2
     },
     {
       "titulo": "Departamento en Venta",
       "descripcion": "Hermoso departamento en carlos Paz etc...",
       "precio": "500000",
-      "direccion":"Tucuman 241,Córdoba,Argentina",
+      "direccion": "Tucuman 241,Córdoba,Argentina",
+      "ambientes": 2,
       "totales": 400,
       "cubiertos": 300,
-      "id":3
+      "estrellas": 4,
+      "id": 3
     },
     {
       "titulo": "Casa en Venta",
       "descripcion": "Hermosa casa en carlos Paz etc...",
       "precio": "500000",
-      "direccion":"Tucuman 241,Córdoba,Argentina",
+      "direccion": "Tucuman 241,Córdoba,Argentina",
+      "ambientes": "9",
       "totales": 400,
       "cubiertos": 300,
-      "id":4
+      "estrellas": 2,
+      "id": 4
     },
     {
       "titulo": "Casa en Venta",
       "descripcion": "Hermosa casa en carlos Paz etc...",
       "precio": "500000",
-      "direccion":"Tucuman 241,Córdoba,Argentina",
+      "direccion": "Tucuman 241,Córdoba,Argentina",
+      "ambientes": 2,
       "totales": 400,
       "cubiertos": 300,
-      "id":5
+      "estrellas": 3,
+      "id": 5
     },
     {
-      "titulo": "Casa en Venta",
-      "descripcion": "Hermosa casa en carlos Paz etc...",
-      "precio": "500000",
-      "direccion":"Tucuman 241,Córdoba,Argentina",
-      "totales": 400,
-      "cubiertos": 300,
-      "id":6
+      "titulo": "casa nueva",
+      "descripcion": "asd",
+      "precio": "4555",
+      "direccion": "LIBERTAD 72",
+      "ambientes": "3",
+      "totales": "234",
+      "cubiertos": "2",
+      "estrellas": "2",
+      "id": 6
+    }
+  ],
+  "fetchUsuarios": [
+    {
+      "nombre": "Rodrigo",
+      "apellido": "Francia",
+      "email": "rodri@gmail.com",
+      "telefono": "3517363749",
+      "tipo": "administrador",
+      "id": 2
+    },
+    {
+      "nombre": "Rodrigo2",
+      "apellido": "Segundo",
+      "email": "rodri2@gmail.com",
+      "telefono": "3517730952",
+      "tipo": "propietario",
+      "id": 3
     }
   ],
   "fetchTipoUsuario": [
@@ -63,16 +93,6 @@
     {
       "nombreTipo": "propietario",
       "id": 2
-    },
-    {
-      "nombreTipo": "inquilino",
-      "id": 3
-    }
-  ],
-  "fetchLogin": [
-    {
-      "email": "",
-      "contrasenia": ""
     }
   ]
 }

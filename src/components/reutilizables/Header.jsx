@@ -1,13 +1,28 @@
 import React, { useState } from "react";
 import CorreoImg from "../../img/correo.png";
 import TelefonoImg from "../../img/telefono.png";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate,useLocation } from "react-router-dom";
+
 
 const Header = ({ setTablaInmu, setTablaUsu, setFormul }) => {
+    const navigate = useNavigate();
+    const location= useLocation();
+    const cuenta = JSON.parse(localStorage.getItem("datos"));
 
-    const[isLogin,setIsLogin] = useState(true)
-    const [isPropie,setIsPropie] = useState(true)
-    const[isAdmin,setIsAdmin] = useState(false)
+    let tipoUsuario;
+    
+    if(cuenta){
+        tipoUsuario=cuenta[0].tipo_usuario;
+    }else{
+        tipoUsuario=null;
+    }
+    console.log(tipoUsuario)
+    
+
+    const handleCerrarSesion=()=>{
+        localStorage.clear()
+        navigate("/login")
+    }
 
 return (
     <div className="header">
@@ -28,9 +43,34 @@ return (
         </h3>
         <nav>
         <ul className="flex space-x-16 pt-4 text-sky-600 font-bold uppercase">
-            {isLogin&& isAdmin ? (
-            <>
-                <li>
+            {tipoUsuario===null?(
+                <>
+                <li className="p-2 hover:-translate-y-px uppercase">
+                <Link to="/">Inicio</Link>
+                </li>
+                <li className="p-2 hover:-translate-y-px uppercase">
+                <Link to="/Login">Ingresar</Link>
+                </li>
+                <li className=" flex hover:-translate-y-px items-center">
+                <Link className="bg-sky-600 text-white p-2 rounded-sm cursor-pointer" to="/Register">Registrarse</Link>
+                </li>
+                </>
+            ): tipoUsuario==="Admin" ? (
+                <>
+                {location.pathname==="/"?(
+                    <>
+                    <li className=" flex hover:-translate-y-px items-center">
+                    <Link to="/dashboard">panel</Link>
+                    </li>
+                    <li className=" flex hover:-translate-y-px items-center">
+                    <button className="bg-sky-600 text-white p-2 rounded-sm cursor-pointer uppercase"
+                    onClick={handleCerrarSesion}
+                    >Cerrar Sesión</button>
+                    </li>
+                    </>
+                ):(
+                    <>
+                    <li>
                 <button
                     className="p-2 hover:-translate-y-px uppercase"
                     onClick={() => {
@@ -54,10 +94,15 @@ return (
                 <Link to="/">Inicio</Link>
                 </li>
                 <li className=" flex hover:-translate-y-px items-center">
-            <Link className="bg-sky-600 text-white p-2 rounded-sm cursor-pointer" to="/login">Cerrar Sesión</Link>
+            <button className="bg-sky-600 text-white p-2 rounded-sm cursor-pointer uppercase"
+            onClick={handleCerrarSesion}
+            >Cerrar Sesión</button>
             </li>
+                    </>
+                )}
+                
             </>
-            ) :isLogin&& isPropie? (
+            ) :tipoUsuario==="Usuario"? (
                 <>
             <li className="p-2 hover:-translate-y-px uppercase">
             <Link to="/">Inicio</Link>
@@ -66,22 +111,12 @@ return (
             <Link to="/account">Perfil</Link>
             </li>
             <li className=" flex hover:-translate-y-px items-center">
-            <Link className="bg-sky-600 text-white p-2 rounded-sm cursor-pointer" to="/login">Cerrar Sesión</Link>
+            <button className="bg-sky-600 text-white p-2 rounded-sm cursor-pointer uppercase"
+            onClick={handleCerrarSesion}
+            >Cerrar Sesión</button>
             </li>
             </>
-            ):(
-            <>
-            <li className="p-2 hover:-translate-y-px uppercase">
-            <Link to="/">Inicio</Link>
-            </li>
-            <li className="p-2 hover:-translate-y-px uppercase">
-            <Link to="/Login">Ingresar</Link>
-            </li>
-            <li className=" flex hover:-translate-y-px items-center">
-            <Link className="bg-sky-600 text-white p-2 rounded-sm cursor-pointer" to="/Register">Registrarse</Link>
-            </li>
-            </>
-            )}
+            ):null}
         </ul>
         </nav>
     </div>

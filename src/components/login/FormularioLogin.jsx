@@ -41,10 +41,12 @@ const FormularioLogin = () => {
     //si todo sale bien...
     try {
         const resultado = await fetchLogin(email,contrasenia);
+        localStorage.setItem("datos",JSON.stringify(resultado))
     if (resultado[0].tipo_usuario === 'Admin') {
         navigate('/dashboard');
     } else if (resultado[0].tipo_usuario === 'Usuario') {
-        navigate('/account', { state: { resultado } });
+        //para enviar una prop en una redireccion navigate('/account', { state: { resultado } });
+        navigate('/account');
     }
     } catch (error) {
         console.log(error)

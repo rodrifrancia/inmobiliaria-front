@@ -1,7 +1,7 @@
 export async function fetchObtenerInmuebles(){
 
     //const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/v1/inmueble`)
-    const respuesta = await fetch('http://192.168.0.31:3000/fetchInmuebles')
+    const respuesta = await fetch('http://localhost:3000/fetchInmuebles')
     const resultado = await respuesta.json()
     return resultado
 }
@@ -9,7 +9,8 @@ export async function fetchObtenerInmuebles(){
 export async function fetchAgregarinmueble(inmueble){
     
     try {
-        const respuesta= await fetch(`${import.meta.env.VITE_API_URL}/v1/inmueble`,{
+        //const respuesta= await fetch(`${import.meta.env.VITE_API_URL}/v1/inmueble`,{
+        const respuesta= await fetch(`${import.meta.env.VITE_API_URL}/fetchInmuebles`,{
             method: 'POST',
             body: JSON.stringify(inmueble),
             headers: {
@@ -24,7 +25,8 @@ export async function fetchAgregarinmueble(inmueble){
 
 export async function fetchEditarInmueble({ titulo,descripcion,precio,direccion,ambientes,totales,cubiertos,estrellas,id}){
     try {
-        const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/v1/inmueble?id=${id}`,{
+        //const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/v1/inmueble?id=${id}`,{
+            const respuesta= await fetch(`${import.meta.env.VITE_API_URL}/fetchInmuebles/${id}`,{
             method: 'PUT',
             body: JSON.stringify({
                 titulo,
@@ -50,7 +52,8 @@ export async function fetchEditarInmueble({ titulo,descripcion,precio,direccion,
 export async function fetchEliminarInmueble(id){
     try {
         if (id) {
-            const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/v1/inmueble?id=${id}`,{
+            //const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/v1/inmueble?id=${id}`,{
+                const respuesta= await fetch(`${import.meta.env.VITE_API_URL}/fetchInmuebles/${id}`,{
                 method: 'DELETE'
                 })
                 const resultado=  await respuesta.json()

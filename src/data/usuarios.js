@@ -1,6 +1,7 @@
 export async function fetchObtenerUsuarios(){
 
     const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/fetchUsuarios`)
+    //const respuesta = await fetch(`http://192.168.0.31:3000/fetchUsuarios`)
     const resultado = await respuesta.json()
     return resultado
 }
@@ -9,6 +10,7 @@ export async function fetchAgregarUsuario(usuario){
     
     try {
         const respuesta= await fetch(`${import.meta.env.VITE_API_URL}/fetchUsuarios`,{
+            //const respuesta= await fetch(`http://192.168.0.31:3000/fetchUsuarios`,{
             method: 'POST',
             body: JSON.stringify(usuario),
             headers: {
@@ -25,11 +27,11 @@ export async function fetchEliminarUsuario(id){
     try {
         if (id) {
             const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/fetchUsuarios/${id}`,{
+            //const respuesta = await fetch(`http://192.168.0.31:3000/fetchUsuarios/${id}`,{
                 method: 'DELETE'
                 })
                 const resultado=  await respuesta.json()
                 const result = [{status:200, resultado}]
-                console.log(result)
                 return result
         } else {
         const result = [{status:404, error:"No me pasaste el id"}]
@@ -45,6 +47,7 @@ export async function fetchEliminarUsuario(id){
 export async function fetchEditarUsuario(nombre,apellido,email,telefono,tipo,constrasenia,id){
     try {
         const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/fetchUsuarios/${id}`,{
+            //const respuesta = await fetch(`http://192.168.0.31:3000/fetchUsuarios/${id}`,{
             method: 'PUT',
             body: JSON.stringify({
                 nombre,

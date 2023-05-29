@@ -39,7 +39,6 @@ const Modal = ({
         break;
       case (queEliminar = "usuario"):
         const resul2 = await fetchEliminarUsuario(idEliminar);
-        console.log(resul2);
         if (resul2[0].status == 200) {
           const respuesta2 = await fetchObtenerUsuarios();
           setTodosUsuarios(respuesta2);

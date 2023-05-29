@@ -26,6 +26,7 @@ const Dashboard = () => {
   const[editUsua,setEditUsua] = useState(false)
   const[usuario,setUsuario] = useState([])
   const[tiposUsu,setTiposUsu] = useState([])
+  
 
   
     useEffect(() => {

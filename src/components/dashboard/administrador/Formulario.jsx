@@ -35,7 +35,7 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
 }, [inmueble])
 
       const subirFotos=(e)=>{
-        setFotos(e)
+        setFotos(e);
       }
 
       const handleSubmit = async(e)=>{
@@ -97,7 +97,7 @@ const Formulario = ({ inmueble, setInmueble, inmuebles, setInmuebles,error,setEr
   return (
     <div className="w-11/12">
       <h3 htmlFor="" className="font-bold text-center text-2xl uppercase ">
-        Cargar nueva propiedad
+        Cargar nuevo inmueble
       </h3>
       <form action="" className="grid bg-white rounded-md p-5 shadow-lg">
         <label htmlFor="titulo" className="font-bold uppercase p-1">
